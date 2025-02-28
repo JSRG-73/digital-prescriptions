@@ -5,23 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="92a143f5-c0da-4df2-abcb-d563ceddb66f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jorgerosas/recetas/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jorgerosas/recetas/HelloApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/jorgerosas/recetas/hello-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/jorgerosas/recetas/hello-view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../RecetasDigitales/.gitattributes" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../RecetasDigitales/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../RecetasDigitales/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../RecetasDigitales/mvnw" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../RecetasDigitales/mvnw.cmd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../RecetasDigitales/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../RecetasDigitales/src/main/java/RecetasDigitales/RecetasDigitalesApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../RecetasDigitales/src/main/java/RecetasDigitales/controllers/PrescriptionRESTController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../RecetasDigitales/src/main/resources/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../RecetasDigitales/src/test/java/RecetasDigitales/RecetasDigitalesApplicationTests.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
