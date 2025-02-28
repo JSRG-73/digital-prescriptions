@@ -1,4 +1,4 @@
-package com.jorgerosas.recetas;
+ package com.jorgerosas.recetas;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
