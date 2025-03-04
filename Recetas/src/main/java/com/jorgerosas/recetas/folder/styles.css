@@ -50,6 +50,6 @@ h1{
 }
 
 @page {
-    size: A4 landscape;
-  }
-  
+    size: 1500px 1000px;  /* Width x Height */
+    margin: 0;  /* Remove default margins */
+}
