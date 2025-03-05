@@ -7,4 +7,6 @@ module com.jorgerosas.recetas {
 
     opens com.jorgerosas.recetas to javafx.fxml;
     exports com.jorgerosas.recetas;
+    exports com.jorgerosas.recetas.Models;
+    opens com.jorgerosas.recetas.Models to javafx.fxml;
 }

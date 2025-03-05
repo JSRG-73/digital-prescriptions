@@ -5,7 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="92a143f5-c0da-4df2-abcb-d563ceddb66f" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jorgerosas/recetas/PrescriptionApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jorgerosas/recetas/PrescriptionApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/jorgerosas/recetas/Models/PrescriptionBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jorgerosas/recetas/PrescriptionApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jorgerosas/recetas/folder/UC.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jorgerosas/recetas/folder/logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jorgerosas/recetas/folder/styles.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
