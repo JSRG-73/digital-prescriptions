@@ -23,7 +23,5 @@ public class PrescriptionApplication {
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
-
-
     }
 }
