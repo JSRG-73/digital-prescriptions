@@ -7,7 +7,6 @@
     <list default="true" id="92a143f5-c0da-4df2-abcb-d563ceddb66f" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/jorgerosas/recetas/Models/PrescriptionBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jorgerosas/recetas/Models/PrescriptionBuilder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/UC/UC.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/UC/UC.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,6 +44,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Application.HelloApplication.executor": "Run",
+    "Application.MainView.executor": "Run",
     "Application.PrescriptionApplication.executor": "Run",
     "Application.PrescriptionBuilder.executor": "Run",
     "Application.Prescriptiontest1.executor": "Run",
@@ -70,5 +70,16 @@
       <updated>1740744101999</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>
