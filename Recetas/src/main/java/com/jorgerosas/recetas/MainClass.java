@@ -14,7 +14,7 @@ public class MainClass extends Application{
         AnchorPane root = loader.load();
 
         primaryStage.setScene(new Scene(root, 400, 300));
-        primaryStage.setTitle("My JavaFX App");
+        primaryStage.setTitle("Recetas");
         primaryStage.show();
     }
 
