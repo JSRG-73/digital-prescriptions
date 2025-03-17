@@ -13,5 +13,4 @@ public class MainController {
     private void initialize() {
         clickButton.setOnAction(e -> messageLabel.setText("Button Clicked!"));
     }
-
 }
