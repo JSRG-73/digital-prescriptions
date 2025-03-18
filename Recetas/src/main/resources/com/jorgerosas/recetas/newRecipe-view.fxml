@@ -38,10 +38,12 @@
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jorgerosas.recetas.Controllers.MainController">
+<VBox fx:controller="com.jorgerosas.recetas.Controllers.MainController" prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
   <children>
     <MenuBar VBox.vgrow="NEVER">
       <menus>
@@ -84,11 +86,22 @@
     </MenuBar>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
       <children>
-            <Button fx:id="btnnewRecipe" layoutX="36.0" layoutY="14.0" mnemonicParsing="false" onAction="#newRecipe" prefHeight="45.0" prefWidth="107.0" text="NUEVA RECETA" />
-            <Button fx:id="btnshowRecipes" layoutX="260.0" layoutY="14.0" mnemonicParsing="false" onAction="#showRecipes" prefHeight="46.0" prefWidth="107.0" text="GUARDADAS" />
-            <Button fx:id="btngenereatePDF" layoutX="481.0" layoutY="13.0" mnemonicParsing="false" onAction="#generatePDF" prefHeight="46.0" prefWidth="107.0" text="GENERAR PDF" />
-            <Label layoutX="76.0" layoutY="157.0" prefHeight="122.0" prefWidth="453.0" text="Recetas Digitales" />
+        <Button fx:id="btnnewRecipe" layoutX="36.0" layoutY="14.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="107.0" text="NUEVA RECETA" onAction="#newRecipe"/>
+        <Button fx:id="btnshowRecipes" layoutX="260.0" layoutY="14.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="107.0" text="GUARDADAS" onAction="#showRecipes"/>
+        <Button fx:id="btngenereatePDF" layoutX="481.0" layoutY="13.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="107.0" text="GENERAR PDF" onAction="#generatePDF"/>
+
+            <Label layoutX="36.0" layoutY="82.0" text="Nombre del paciente:" />
+            <Label layoutX="36.0" layoutY="130.0" prefHeight="18.0" prefWidth="48.0" text="Fecha:" />
+            <Label layoutX="36.0" layoutY="183.0" text="Descripción:" />
+            <TextArea fx:id="txtPatientName" layoutX="196.0" layoutY="80.0" prefHeight="18.0" prefWidth="391.0" />
+            <TextArea fx:id="txtDate" layoutX="196.0" layoutY="128.0" prefHeight="18.0" prefWidth="391.0" />
+            <TextArea fx:id="txtDescription" layoutX="196.0" layoutY="183.0" prefHeight="88.0" prefWidth="391.0" />
       </children>
     </AnchorPane>
+  <Label alignment="CENTER" style="&#10;" textAlignment="CENTER" textFill="#9f9f9f" wrapText="false">
+    <font>
+      <Font size="18.0" />
+    </font>
+  </Label>
   </children>
 </VBox>
