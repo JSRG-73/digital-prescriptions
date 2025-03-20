@@ -66,7 +66,6 @@ public class PrescriptionBuilder {
 
             // Fix HTML to ensure proper XML compliance and add print-specific styles
             String fixedHtml = fixHtmlForXmlCompliance(html);
-            fixedHtml = addPrintStylesheet(fixedHtml);
 
             // Create an output stream for the PDF
             try (OutputStream os = new FileOutputStream(filePath)) {
@@ -78,10 +77,7 @@ public class PrescriptionBuilder {
 
                 // Set the HTML content with base URI
                 builder.withHtmlContent(fixedHtml, baseUri);
-
-                // Enable CSS support (helps with some CSS properties)
-                builder.useCacheStore(new com.openhtmltopdf.cache.FSCacheEx() {});
-
+                
                 // Set output stream
                 builder.toStream(os);
 
@@ -113,59 +109,6 @@ public class PrescriptionBuilder {
         html = html.replaceAll("<link([^>]*)>", "<link$1/>");
 
         return html;
-    }
-
-    private String addPrintStylesheet(String html) {
-        String printCss = "<style type=\"text/css\" media=\"print\">\n" +
-                "/* Print-specific styles that avoid flexbox */\n" +
-                "body {\n" +
-                "    margin: 0;\n" +
-                "    padding: 0;\n" +
-                "    font-family: 'Poppins', sans-serif;\n" +
-                "}\n" +
-                ".container {\n" +
-                "    width: 100%;\n" +
-                "    margin: 0 auto;\n" +
-                "    padding: 20px;\n" +
-                "}\n" +
-                ".header {\n" +
-                "    width: 100%;\n" +
-                "    position: relative;\n" +
-                "    margin-bottom: 20px;\n" +
-                "    overflow: hidden;\n" +
-                "}\n" +
-                ".logo {\n" +
-                "    float: left;\n" +
-                "    width: 100px;\n" +
-                "    margin-right: 20px;\n" +
-                "}\n" +
-                ".doctor-info {\n" +
-                "    float: left;\n" +
-                "    width: 60%;\n" +
-                "}\n" +
-                ".patient-info {\n" +
-                "    clear: both;\n" +
-                "    margin-top: 20px;\n" +
-                "    padding-top: 20px;\n" +
-                "    border-top: 1px solid #ccc;\n" +
-                "}\n" +
-                ".content {\n" +
-                "    margin-top: 20px;\n" +
-                "    padding: 20px 0;\n" +
-                "    border-top: 1px solid #ccc;\n" +
-                "}\n" +
-                ".footer {\n" +
-                "    margin-top: 30px;\n" +
-                "    text-align: center;\n" +
-                "}\n" +
-                ".signature {\n" +
-                "    margin-top: 50px;\n" +
-                "    text-align: center;\n" +
-                "}\n" +
-                "</style>";
-
-        // Insert print stylesheet before the closing head tag
-        return html.replace("</head>", printCss + "</head>");
     }
 
     public static void main(String[] args) {

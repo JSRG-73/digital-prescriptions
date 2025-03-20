@@ -5,7 +5,7 @@ module com.jorgerosas.recetas {
     requires openhtmltopdf.pdfbox;
     //requires org.xhtmlrenderer;
     requires com.github.librepdf.openpdf;
-    requires openhtmltopdf.svg.support;
+    //requires openhtmltopdf.svg.support;
     requires openhtmltopdf.core;
 
 
