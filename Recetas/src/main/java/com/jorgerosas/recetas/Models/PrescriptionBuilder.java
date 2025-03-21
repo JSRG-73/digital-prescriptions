@@ -35,7 +35,6 @@ public class PrescriptionBuilder {
         this.html = content.toString();
     }
 
-
     public String getHtml() {
         return html;
     }
@@ -112,13 +111,9 @@ public class PrescriptionBuilder {
     }
 
     public static void main(String[] args) {
-        // Initialize PrescriptionBuilder with the path to the HTML template
+
         PrescriptionBuilder pb = new PrescriptionBuilder("/templates/UC/UC.html");
-
-        // Load the HTML template
         pb.readHtmlFromResources();
-
-        // Replace placeholder data in the HTML
         pb.replaceDataShort("Jorge Rosas", "12/12/12", "Descripción");
 
         // Define file paths for the generated HTML and PDF
@@ -129,6 +124,6 @@ public class PrescriptionBuilder {
         pb.generateHTML(htmlFilePath);
 
         // Generate PDF
-        pb.generatePDF(pdfFilePath);
+        //pb.generatePDF(pdfFilePath);
     }
 }
