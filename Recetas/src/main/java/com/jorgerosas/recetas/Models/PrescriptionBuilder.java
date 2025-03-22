@@ -120,7 +120,7 @@ public class PrescriptionBuilder {
         String htmlFilePath = "templates/UC/UC-1.html";
         String pdfFilePath = "templates/UC/UC-1.pdf";
 
-        // Generate HTML
+        // Generate HTML 
         pb.generateHTML(htmlFilePath);
 
         // Generate PDF
