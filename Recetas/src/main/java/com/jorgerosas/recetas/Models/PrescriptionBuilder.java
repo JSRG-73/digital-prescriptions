@@ -72,6 +72,7 @@ public class PrescriptionBuilder {
         pb.readHtmlFromResources();
         pb.replaceDataShort("Jorge Rosas", "12/12/12", "Descripción");
 
+        
         // Define file paths for the generated HTML and PDF
         String htmlFilePath = "templates/UC/UC-1.html";
         String pdfFilePath = "templates/UC/UC-1.pdf";
