@@ -1,0 +1,53 @@
+body{
+    color: rgb(100, 99, 99);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Full viewport height */
+    margin: 0;
+    text-align: center;
+}
+body header #dr{
+    margin-right: 50;
+}
+
+body header #nf{
+    text-align: left;
+    margin-right: 100;
+}
+
+header{
+    display: flex;
+    align-items: center;
+ 
+    justify-content: space-between;
+}
+#logo{
+    margin-right: 50;
+}
+
+footer {
+    display: flex;
+    justify-content: space-between; /* Pushes first <p> left and second <p> right */
+    align-items: center; /* Aligns items vertically */
+    padding: 10px;
+}
+
+h1{
+    font-family: 'Great Vibes', cursive;
+}
+
+.content {
+    flex: 1; /* Pushes the footer down */
+    padding: 20px;
+    color: black;
+    text-align: left;
+}
+.black{
+    color: black;
+    display: inline;
+}
+
+@page {
+    size: 1500px 1000px;  /* Width x Height */
+    margin: 0;  /* Remove default margins */
+}

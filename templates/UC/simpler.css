@@ -1,0 +1,69 @@
+body {
+    color: rgb(100, 99, 99);
+    margin: 0;
+    text-align: center;
+    /* Remove flexbox for better compatibility */
+    height: 100%;
+    position: relative;
+}
+
+body header #dr {
+    margin-right: 50px; /* Added 'px' for better compatibility */
+}
+
+body header #nf {
+    text-align: left;
+    margin-right: 100px; /* Added 'px' for better compatibility */
+}
+
+header {
+    /* Alternative to flexbox */
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    padding: 10px 0;
+}
+
+#logo {
+    margin-right: 50px; /* Added 'px' for better compatibility */
+}
+
+footer {
+    /* Alternative to flexbox */
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    padding: 10px;
+}
+
+footer p:first-child {
+    float: left;
+}
+
+footer p:last-child {
+    float: right;
+}
+
+h1 {
+    font-family: 'Great Vibes', cursive;
+    /* Font will need to be registered in Java code */
+}
+
+.content {
+    padding: 20px;
+    color: black;
+    text-align: left;
+    /* Alternative to flex: 1 */
+    position: relative;
+    min-height: 600px; /* Fixed height instead of flex */
+}
+
+.black {
+    color: black;
+    display: inline;
+}
+
+@page {
+    size: 21cm 29.7cm;  /* A4 size is more reliable */
+    margin: 0;
+}
