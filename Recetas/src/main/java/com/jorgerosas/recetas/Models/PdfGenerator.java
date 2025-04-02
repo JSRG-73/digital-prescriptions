@@ -1,12 +1,16 @@
 package com.jorgerosas.recetas.Models;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.InputStream;
+import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 
+import com.aayushatharva.brotli4j.Brotli4jLoader;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.Pdf;
 import org.openqa.selenium.WebDriver;
@@ -18,7 +22,21 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class PdfGenerator {
 
-    /*public boolean generatePdfFromHtml(String htmlFilePath, String outputPdfPath) {
+    static {
+        try {
+            Brotli4jLoader.ensureAvailability();
+        } catch (Exception e) {
+            throw new RuntimeException("Failed to load Brotli native libraries", e);
+        }
+    }
+    /**
+     * Generates a PDF from an HTML file
+     *
+     * @param htmlFilePath Path to the source HTML file
+     * @param outputPdfPath Destination path for the generated PDF
+     * @return true if PDF generation was successful, false otherwise
+     */
+    public boolean generatePdfFromHtml(String htmlFilePath, String outputPdfPath) {
         WebDriver driver = null;
 
         try {
@@ -37,6 +55,8 @@ public class PdfGenerator {
             File htmlFile = new File(htmlFilePath);
             String fileUrl = "file:///" + htmlFile.getAbsolutePath().replace("\\", "/");
 
+            System.out.println("Loading HTML from: " + fileUrl);
+
             // Navigate to the HTML file
             driver.get(fileUrl);
 
@@ -44,7 +64,9 @@ public class PdfGenerator {
             Thread.sleep(1000);
 
             // Print to PDF
-            Pdf pdf = ((ChromeDriver) driver).print(new PrintOptions());
+            PrintOptions printOptions = new PrintOptions();
+            //printOptions.setPageSize(org.openqa.selenium.print.PrintOptions.Size.A4);
+            Pdf pdf = ((ChromeDriver) driver).print(printOptions);
 
             // Write PDF to file
             Path outputPath = Paths.get(outputPdfPath);
@@ -54,9 +76,11 @@ public class PdfGenerator {
             byte[] pdfContent = OutputType.BYTES.convertFromBase64Png(pdf.getContent());
             Files.write(outputPath, pdfContent);
 
+            System.out.println("PDF successfully generated at: " + outputPdfPath);
             return true;
         } catch (Exception e) {
             // Log the full exception for debugging
+            System.err.println("PDF generation failed: " + e.getMessage());
             e.printStackTrace();
             return false;
         } finally {
@@ -69,68 +93,51 @@ public class PdfGenerator {
                 }
             }
         }
-    }*/
-    public boolean generatePdfFromHtml(String htmlFilePath, String outputPdfFileName) {
-        WebDriver driver = null;
-
-        try {
-            // Configure Chrome for headless PDF generation
-            ChromeOptions options = new ChromeOptions();
-            options.addArguments("--headless", "--disable-gpu", "--no-sandbox", "--disable-dev-shm-usage");
-
-            WebDriverManager.chromedriver().setup();
-            driver = new ChromeDriver(options);
-
-            // Load the HTML file
-            File htmlFile = new File(htmlFilePath);
-            String fileUrl = "file:///" + htmlFile.getAbsolutePath().replace("\\", "/");
-            driver.get(fileUrl);
-
-            Thread.sleep(1000); // Allow time for rendering
-
-            // Generate PDF
-            Pdf pdf = ((ChromeDriver) driver).print(new PrintOptions());
-            byte[] pdfContent = OutputType.BYTES.convertFromBase64Png(pdf.getContent());
-
-            // Define the output directory inside resources/templates/UC
-            String resourcesDir = "src/main/resources/templates/UC";
-            Path outputDir = Paths.get(resourcesDir);
-
-            // Create directory if it doesn't exist
-            if (!Files.exists(outputDir)) {
-                Files.createDirectories(outputDir);
-            }
-
-            // Write PDF to the specified directory
-            Path outputPath = outputDir.resolve(outputPdfFileName);
-            Files.write(outputPath, pdfContent);
-
-            System.out.println("PDF saved to: " + outputPath.toAbsolutePath());
-            return true;
-        } catch (Exception e) {
-            e.printStackTrace();
-            return false;
-        } finally {
-            if (driver != null) driver.quit();
-        }
     }
 
-
     /**
-     * Utility method to resolve paths relative to the application's resources
+     * Improved method to resolve paths relative to the application's resources
      *
      * @param resourcePath Path relative to resources folder
-     * @return Absolute path to the resource
+     * @return Absolute path to the resource (either as a file or extracted temp file)
+     * @throws IOException if resource cannot be found or accessed
      */
-    public String getResourcePath(String resourcePath) {
-        try {
-            // Try to get resource from classpath
-            File file = new File(getClass().getClassLoader().getResource(resourcePath).toURI());
-            return file.getAbsolutePath();
-        } catch (Exception e) {
-            e.printStackTrace();
-            return null;
+    public String getResourcePath(String resourcePath) throws IOException {
+        // First try to get as URL from class loader
+        URL resourceUrl = getClass().getClassLoader().getResource(resourcePath);
+
+        // If resource was found as URL
+        if (resourceUrl != null) {
+            try {
+                // Try to convert to file path directly (works for non-JAR resources)
+                File file = new File(resourceUrl.toURI());
+                System.out.println("Resource found directly: " + file.getAbsolutePath());
+                return file.getAbsolutePath();
+            } catch (Exception e) {
+                // For resources inside JAR or other non-file URLs, extract to temp file
+                try (InputStream inputStream = getClass().getClassLoader().getResourceAsStream(resourcePath)) {
+                    if (inputStream != null) {
+                        // Extract to temporary file
+                        String fileName = Paths.get(resourcePath).getFileName().toString();
+                        Path tempFile = Files.createTempFile("resource_", fileName);
+                        Files.copy(inputStream, tempFile, StandardCopyOption.REPLACE_EXISTING);
+                        System.out.println("Resource extracted to: " + tempFile);
+                        return tempFile.toString();
+                    }
+                }
+            }
         }
+
+        // Alternative approach: try direct file path in case it's not a classpath resource
+        // but a file in the file system
+        File directFile = new File(resourcePath);
+        if (directFile.exists() && directFile.isFile()) {
+            System.out.println("Resource found as direct file: " + directFile.getAbsolutePath());
+            return directFile.getAbsolutePath();
+        }
+
+        // If we got here, resource wasn't found
+        throw new FileNotFoundException("Resource not found: " + resourcePath);
     }
 
     /**
@@ -139,39 +146,52 @@ public class PdfGenerator {
      *
      * @param sourceTemplatePath Path to the source HTML template
      * @return Path to the temporary copy of the template
+     * @throws IOException if template cannot be copied
      */
-    public String prepareTempHtmlTemplate(String sourceTemplatePath) {
-        try {
-            // Create a temporary file
-            Path tempFile = Files.createTempFile("pdf_template_", ".html");
+    public String prepareTempHtmlTemplate(String sourceTemplatePath) throws IOException {
+        // Create a temporary file
+        Path tempFile = Files.createTempFile("pdf_template_", ".html");
 
-            // Copy the source template to the temporary location
-            Files.copy(
-                    Paths.get(sourceTemplatePath),
-                    tempFile,
-                    StandardCopyOption.REPLACE_EXISTING
-            );
+        // Copy the source template to the temporary location
+        Files.copy(
+                Paths.get(sourceTemplatePath),
+                tempFile,
+                StandardCopyOption.REPLACE_EXISTING
+        );
 
-            return tempFile.toString();
-        } catch (IOException e) {
-            e.printStackTrace();
-            return null;
-        }
+        System.out.println("Template copied to: " + tempFile);
+        return tempFile.toString();
     }
 
-
     /**
-     * Example usage method
+     * Example usage method with improved error handling
      */
     public static void main(String[] args) {
         PdfGenerator generator = new PdfGenerator();
 
-        // Input: HTML file (could be from resources or a full path)
-        String htmlPath = generator.getResourcePath("templates/UC/UC1.html");
+        try {
+            // IMPORTANT: Adjust this path to match your project structure
+            String htmlTemplateResource = "templates/UC/UC-1.html";
 
-        // Output: PDF will be saved in `resources/templates/UC/output.pdf`
-        boolean success = generator.generatePdfFromHtml(htmlPath, "output.pdf");
+            // Get path to the template
+            String htmlFilePath = generator.getResourcePath(htmlTemplateResource);
 
-        System.out.println("PDF Generation " + (success ? "Successful" : "Failed"));
+            // Set output path
+            String outputPdfPath = System.getProperty("user.home") + "/Desktop/UC-1.pdf";
+
+            // Generate PDF
+            boolean success = generator.generatePdfFromHtml(htmlFilePath, outputPdfPath);
+
+            System.out.println("PDF Generation " + (success ? "Successful" : "Failed"));
+
+        } catch (Exception e) {
+            System.err.println("Error in main: " + e.getMessage());
+            e.printStackTrace();
+
+            // Give helpful feedback about resource locations
+            System.err.println("\nDebug tip: Make sure the resource is in the correct location.");
+            System.err.println("For Maven projects, resource should be in: src/main/resources/templates/UC/UC-1.html");
+            System.err.println("Check your project structure and build path configuration.");
+        }
     }
 }
