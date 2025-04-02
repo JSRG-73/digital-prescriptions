@@ -18,7 +18,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class PdfGenerator {
 
-    public boolean generatePdfFromHtml(String htmlFilePath, String outputPdfPath) {
+    /*public boolean generatePdfFromHtml(String htmlFilePath, String outputPdfPath) {
         WebDriver driver = null;
 
         try {
@@ -69,7 +69,52 @@ public class PdfGenerator {
                 }
             }
         }
+    }*/
+    public boolean generatePdfFromHtml(String htmlFilePath, String outputPdfFileName) {
+        WebDriver driver = null;
+
+        try {
+            // Configure Chrome for headless PDF generation
+            ChromeOptions options = new ChromeOptions();
+            options.addArguments("--headless", "--disable-gpu", "--no-sandbox", "--disable-dev-shm-usage");
+
+            WebDriverManager.chromedriver().setup();
+            driver = new ChromeDriver(options);
+
+            // Load the HTML file
+            File htmlFile = new File(htmlFilePath);
+            String fileUrl = "file:///" + htmlFile.getAbsolutePath().replace("\\", "/");
+            driver.get(fileUrl);
+
+            Thread.sleep(1000); // Allow time for rendering
+
+            // Generate PDF
+            Pdf pdf = ((ChromeDriver) driver).print(new PrintOptions());
+            byte[] pdfContent = OutputType.BYTES.convertFromBase64Png(pdf.getContent());
+
+            // Define the output directory inside resources/templates/UC
+            String resourcesDir = "src/main/resources/templates/UC";
+            Path outputDir = Paths.get(resourcesDir);
+
+            // Create directory if it doesn't exist
+            if (!Files.exists(outputDir)) {
+                Files.createDirectories(outputDir);
+            }
+
+            // Write PDF to the specified directory
+            Path outputPath = outputDir.resolve(outputPdfFileName);
+            Files.write(outputPath, pdfContent);
+
+            System.out.println("PDF saved to: " + outputPath.toAbsolutePath());
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        } finally {
+            if (driver != null) driver.quit();
+        }
     }
+
 
     /**
      * Utility method to resolve paths relative to the application's resources
@@ -114,20 +159,18 @@ public class PdfGenerator {
         }
     }
 
+
     /**
      * Example usage method
      */
     public static void main(String[] args) {
         PdfGenerator generator = new PdfGenerator();
 
-        // Example of usage
-        String htmlTemplatePath = "templates/report_template.html";
-        String outputPdfPath = System.getProperty("user.home") + "/Desktop/generated_report.pdf";
+        // Input: HTML file (could be from resources or a full path)
+        String htmlPath = generator.getResourcePath("templates/UC/UC1.html");
 
-        boolean success = generator.generatePdfFromHtml(
-                generator.getResourcePath(htmlTemplatePath),
-                outputPdfPath
-        );
+        // Output: PDF will be saved in `resources/templates/UC/output.pdf`
+        boolean success = generator.generatePdfFromHtml(htmlPath, "output.pdf");
 
         System.out.println("PDF Generation " + (success ? "Successful" : "Failed"));
     }
