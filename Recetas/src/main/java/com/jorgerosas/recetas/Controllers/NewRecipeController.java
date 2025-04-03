@@ -1,0 +1,69 @@
+package com.jorgerosas.recetas.Controllers;
+
+
+import com.jorgerosas.recetas.Models.PrescriptionBuilder;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+import javafx.scene.control.TextArea;
+
+public class NewRecipeController {
+
+    @FXML
+    private Button btnnewRecipe;
+
+    @FXML
+    private Button btnshowRecipes;
+
+    @FXML
+    private Button btnGeneratePDF;
+    @FXML
+    private TextArea txtPatientName;
+
+    @FXML
+    private TextArea txtDate;
+
+    @FXML
+    private TextArea txtDescription;
+
+    // Action when NUEVA RECETA is clicked
+    @FXML
+    private void newRecipe(ActionEvent event) {
+        //System.out.println("Nueva receta creada!");
+        txtPatientName.clear();
+        txtDate.clear();
+        txtDescription.clear();
+    }
+
+    // Action when GUARDADAS is clicked
+    @FXML
+    private void showRecipes(ActionEvent event) {
+        System.out.println("Mostrando recetas guardadas...");
+        // Logic to show saved recipes here
+    }
+
+    // Action when GENERAR PDF is clicked
+    @FXML
+    private void generatePDF(ActionEvent event) {
+        System.out.println("Generando PDF...");
+        String patientName = txtPatientName.getText();
+        String date = txtDate.getText();
+        String description = txtDescription.getText();
+
+        if (patientName.isEmpty() || date.isEmpty() || description.isEmpty()) {
+            System.out.println("Por favor, completa todos los campos antes de generar la receta.");
+        } else {
+
+            PrescriptionBuilder pb = new PrescriptionBuilder("/templates/UC/UC.html");
+            pb.readHtmlFromResources();
+            pb.replaceDataShort(patientName, date, description);
+
+            System.out.println("PDF generado para: " + patientName);
+
+            String htmlFilePath = "templates/UC/UC-1.html";
+            //String pdfFilePath = "templates/UC/UC-1.pdf";
+
+            pb.generateHTML(htmlFilePath);
+        }
+    }
+}
