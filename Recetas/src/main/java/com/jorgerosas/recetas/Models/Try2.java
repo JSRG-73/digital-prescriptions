@@ -22,7 +22,7 @@ public class Try2 {
         WebDriver driver = new ChromeDriver(options);
 
         try {
-            driver.get("file:///D:/Projects/DrBarragan/Recetas/src/main/resources/templates/UC/UC-1.html");
+            driver.get("file:///D:/Projects/DrBarragan/templates/UC/UC-1.html");
 
             // Create print options map
             Map<String, Object> printParams = new HashMap<>();

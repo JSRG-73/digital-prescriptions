@@ -3,11 +3,9 @@ module com.jorgerosas.recetas {
     requires javafx.fxml;
     requires itextpdf;
     requires openhtmltopdf.pdfbox;
-    //requires org.xhtmlrenderer;
     requires com.github.librepdf.openpdf;
     requires openhtmltopdf.core;
     requires com.aayushatharva.brotli4j;
-    //requires brotli4j.native.windows.x86_64;
     requires com.aayushatharva.brotli4j.service;
 
     requires org.seleniumhq.selenium.api;
@@ -27,7 +25,6 @@ module com.jorgerosas.recetas {
 
     opens com.jorgerosas.recetas to javafx.fxml;
     opens com.jorgerosas.recetas.Controllers to javafx.fxml;
-    //exports com.jorgerosas.recetas;
     exports com.jorgerosas.recetas.Models;
 
 }

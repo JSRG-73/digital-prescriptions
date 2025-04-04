@@ -70,7 +70,7 @@ public class PrescriptionBuilder {
 
         PrescriptionBuilder pb = new PrescriptionBuilder("/templates/UC/UC.html");
         pb.readHtmlFromResources();
-        pb.replaceDataShort("Jorge Rosas", "12/12/12", "Descripción");
+        pb.replaceDataShort("Pedro Pérez", "12/12/12", "Descripción");
 
         
         // Define file paths for the generated HTML and PDF
@@ -80,8 +80,5 @@ public class PrescriptionBuilder {
         // Generate HTML 
         pb.generateHTML(htmlFilePath);
 
-        // Generate PDF
-        //pb.generatePDF(pdfFilePath);
-        
     }
 }
