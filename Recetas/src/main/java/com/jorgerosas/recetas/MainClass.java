@@ -10,9 +10,9 @@ public class MainClass extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        VBox root = (VBox) FXMLLoader.load(getClass().getResource("main-view.fxml")); // Use VBox correctly
+        VBox root = (VBox) FXMLLoader.load(getClass().getResource("newRecipe-view.fxml")); // Use VBox correctly
         Scene scene = new Scene(root, 640, 400); // Set the scene dimensions
-        primaryStage.setTitle("Receta Digital");
+        primaryStage.setTitle("My Recipe App");
         primaryStage.setScene(scene);
         primaryStage.show();
     }

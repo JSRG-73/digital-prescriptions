@@ -17,6 +17,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.print.PrintOptions;
+
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class PdfGenerator {
@@ -28,7 +29,13 @@ public class PdfGenerator {
             throw new RuntimeException("Failed to load Brotli native libraries", e);
         }
     }
-
+    /**
+     * Generates a PDF from an HTML file
+     *
+     * @param htmlFilePath Path to the source HTML file
+     * @param outputPdfPath Destination path for the generated PDF
+     * @return true if PDF generation was successful, false otherwise
+     */
     public boolean generatePdfFromHtml(String htmlFilePath, String outputPdfPath) {
         WebDriver driver = null;
 
@@ -89,6 +96,8 @@ public class PdfGenerator {
     }
 
     /**
+     * Improved method to resolve paths relative to the application's resources
+     *
      * @param resourcePath Path relative to resources folder
      * @return Absolute path to the resource (either as a file or extracted temp file)
      * @throws IOException if resource cannot be found or accessed
@@ -179,6 +188,10 @@ public class PdfGenerator {
             System.err.println("Error in main: " + e.getMessage());
             e.printStackTrace();
 
+            // Give helpful feedback about resource locations
+            System.err.println("\nDebug tip: Make sure the resource is in the correct location.");
+            System.err.println("For Maven projects, resource should be in: src/main/resources/templates/UC/UC-1.html");
+            System.err.println("Check your project structure and build path configuration.");
         }
     }
 }

@@ -66,7 +66,6 @@ public class PrescriptionBuilder {
         }
     }
 
-
     public static void main(String[] args) {
 
         PrescriptionBuilder pb = new PrescriptionBuilder("/templates/UC/UC.html");
