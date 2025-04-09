@@ -1,19 +1,20 @@
 package com.jorgerosas.recetas;
+
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-public class MainClass extends Application {
+public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        VBox root = (VBox) FXMLLoader.load(getClass().getResource("main-view.fxml")); // Use VBox correctly
-        Scene scene = new Scene(root, 640, 400); // Set the scene dimensions
-        primaryStage.setTitle("Creador de Recetas");
-        primaryStage.setScene(scene);
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("HTMLViewer.fxml"));
+        Parent root = loader.load();
+
+        primaryStage.setTitle("HTML Templates Browser");
+        primaryStage.setScene(new Scene(root, 1200, 800));
         primaryStage.show();
     }
 

@@ -84,9 +84,9 @@
     </MenuBar>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
       <children>
-            <Button fx:id="btnnewRecipe" layoutX="36.0" layoutY="14.0" mnemonicParsing="false" onAction="#newRecipe" prefHeight="45.0" prefWidth="107.0" text="NUEVA RECETA" />
-            <Button fx:id="btnshowRecipes" layoutX="260.0" layoutY="14.0" mnemonicParsing="false" onAction="#showRecipes" prefHeight="46.0" prefWidth="107.0" text="GUARDADAS" />
-            <Button fx:id="btngenereatePDF" layoutX="481.0" layoutY="13.0" mnemonicParsing="false" onAction="#generatePDF" prefHeight="46.0" prefWidth="107.0" text="GENERAR PDF" />
+            <Button fx:id="btnnewRecipe" layoutX="41.0" layoutY="14.0" mnemonicParsing="false" onAction="#newRecipe" prefHeight="45.0" prefWidth="130.0" text="NUEVA RECETA" />
+            <Button fx:id="btnOpenPdfFolder" layoutX="255.0" layoutY="14.0" mnemonicParsing="false" onAction="#openPdfFolder" prefHeight="45.0" prefWidth="130.0" text="VER RECETAS" />
+            <Button fx:id="btnsearchRecipes" layoutX="462.0" layoutY="13.0" mnemonicParsing="false" onAction="#searchRecipes" prefHeight="45.0" prefWidth="130.0" text="BUSCAR RECETAS" AnchorPane.bottomAnchor="314.2" AnchorPane.leftAnchor="462.0" AnchorPane.rightAnchor="42.0" AnchorPane.topAnchor="13.0" />
             <Label layoutX="76.0" layoutY="157.0" prefHeight="122.0" prefWidth="453.0" text="Recetas Digitales" />
       </children>
     </AnchorPane>

@@ -43,7 +43,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox fx:controller="com.jorgerosas.recetas.Controllers.MainController" prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jorgerosas.recetas.Controllers.NRController">
   <children>
     <MenuBar VBox.vgrow="NEVER">
       <menus>
@@ -86,9 +86,9 @@
     </MenuBar>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
       <children>
-        <Button fx:id="btnnewRecipe" layoutX="36.0" layoutY="14.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="107.0" text="NUEVA RECETA" onAction="#newRecipe"/>
-        <Button fx:id="btnshowRecipes" layoutX="260.0" layoutY="14.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="107.0" text="GUARDADAS" onAction="#showRecipes"/>
-        <Button fx:id="btngenereatePDF" layoutX="481.0" layoutY="13.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="107.0" text="GENERAR PDF" onAction="#generatePDF"/>
+        <Button fx:id="btnHome" layoutX="36.0" layoutY="14.0" mnemonicParsing="false" onAction="#goHome" prefHeight="45.0" prefWidth="107.0" text="VOLVER" />
+        <Button fx:id="clearFields" layoutX="260.0" layoutY="14.0" mnemonicParsing="false" onAction="#clearFields" prefHeight="46.0" prefWidth="107.0" text="VACIAR CAMPOS" />
+        <Button fx:id="btngenereatePDF" layoutX="481.0" layoutY="13.0" mnemonicParsing="false" onAction="#generatePDF" prefHeight="46.0" prefWidth="107.0" text="GENERAR PDF" />
 
             <Label layoutX="36.0" layoutY="82.0" text="Nombre del paciente:" />
             <Label layoutX="36.0" layoutY="130.0" prefHeight="18.0" prefWidth="48.0" text="Fecha:" />

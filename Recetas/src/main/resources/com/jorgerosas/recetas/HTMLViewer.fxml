@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TreeView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.web.WebView?>
+
+<BorderPane xmlns="http://javafx.com/javafx/11.0.1"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.jorgerosas.recetas.Views.HTMLBrowserController">
+    <center>
+        <SplitPane dividerPositions="0.3" prefHeight="800.0" prefWidth="1200.0">
+            <items>
+                <TreeView fx:id="fileTreeView" prefHeight="200.0" prefWidth="200.0" />
+                <WebView fx:id="webView" prefHeight="200.0" prefWidth="200.0" />
+            </items>
+        </SplitPane>
+    </center>
+</BorderPane>

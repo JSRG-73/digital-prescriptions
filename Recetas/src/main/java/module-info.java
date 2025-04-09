@@ -1,5 +1,4 @@
 module com.jorgerosas.recetas {
-    requires javafx.controls;
     requires javafx.fxml;
     requires itextpdf;
     requires openhtmltopdf.pdfbox;
@@ -17,14 +16,19 @@ module com.jorgerosas.recetas {
     requires org.apache.commons.lang3;
     requires org.apache.pdfbox;
     requires dev.failsafe.core;
+    requires javafx.web;
 
+    // Export your package to JavaFX modules
+    exports com.jorgerosas.recetas to javafx.graphics, javafx.fxml;
+    exports com.jorgerosas.recetas.Models;
+    exports com.jorgerosas.recetas.Controllers to javafx.graphics;
 
     // Add this to allow reflective access
     opens com.jorgerosas.recetas.Models to brotli4j;
-    //opens com.jorgerosas.recetas.Models to brotli4j.native.windows.x86_64, brotli4j.service;
-
     opens com.jorgerosas.recetas to javafx.fxml;
     opens com.jorgerosas.recetas.Controllers to javafx.fxml;
-    exports com.jorgerosas.recetas.Models;
+    exports com.jorgerosas.recetas.Views to javafx.fxml, javafx.graphics;
+    opens com.jorgerosas.recetas.Views to javafx.fxml;
 
+    opens com.example to javafx.graphics, javafx.fxml;
 }

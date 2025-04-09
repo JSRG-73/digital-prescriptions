@@ -75,6 +75,6 @@ public class PdfGenerator {
 
         String simplePath = pdfG.pathHandler("templates/UC/UC-1.html");
         pdfG.generate(simplePath,"");
-        System.out.println();
+        //System.out.println();
     }
 }
