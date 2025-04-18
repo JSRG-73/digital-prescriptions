@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" stylesheets="@FxmlView.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jorgerosas.recetas.Controllers.NRController">
+   <children>
+      <VBox layoutY="109.0" prefHeight="276.0" prefWidth="200.0" spacing="10.0">
+         <children>
+            <Button fx:id="btnGoHome" mnemonicParsing="false" onAction="#goHome" prefHeight="50.0" prefWidth="200.0" styleClass="metal-button" text="Volver">
+               <graphic>
+                  <ImageView fitHeight="20" fitWidth="20">
+                     <Image url="@assets/home.png" />
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="btnOpenSearcher" mnemonicParsing="false" onAction="#openSearcher" prefHeight="50.0" prefWidth="200.0" styleClass="metal-button" text="Cargar Recetas">
+               <graphic>
+                  <ImageView fitHeight="20" fitWidth="20">
+                     <Image url="@assets/search.png" />
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="btnOpenPdfFolder" mnemonicParsing="false" onAction="#openPdfFolder" prefHeight="50.0" prefWidth="200.0" styleClass="metal-button" text="Ver PDFs">
+               <graphic>
+                  <ImageView fitHeight="20" fitWidth="20">
+                     <Image url="@assets/folder.png" />
+                  </ImageView>
+               </graphic>
+            </Button>
+         </children>
+         <padding>
+            <Insets bottom="100.0" />
+         </padding>
+      </VBox>
+      <TextField fx:id="txtPatientName" layoutX="265.0" layoutY="137.0" prefHeight="38.0" prefWidth="433.0" />
+      <TextArea fx:id="txtDescription" layoutX="265.0" layoutY="300.0" prefHeight="121.0" prefWidth="433.0" />
+      <Label fx:id="labelname" layoutX="265.0" layoutY="90.0" prefHeight="38.0" prefWidth="128.0" styleClass="standarlabel" text="Nombre" textFill="#05367b">
+         <font>
+            <Font name="Times New Roman Bold" size="15.0" />
+         </font></Label>
+      <Label fx:id="labeldate" layoutX="265.0" layoutY="186.0" prefHeight="25.0" prefWidth="128.0" styleClass="standarlabel" text="Fecha" textFill="#05367b">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font></Label>
+      <Label fx:id="labeldescription" layoutX="265.0" layoutY="256.0" prefHeight="38.0" prefWidth="128.0" styleClass="standarlabel" text="Descripción" textFill="#05367b">
+         <font>
+            <Font name="Times New Roman Bold" size="15.0" />
+         </font></Label>
+      <Button fx:id="btngenereatePDF" layoutX="524.0" layoutY="483.0" mnemonicParsing="false" onAction="#generatePDF" prefHeight="50.0" prefWidth="174.0" styleClass="metal-button" text="Generar PDF">
+         <graphic>
+            <ImageView fitHeight="20" fitWidth="20">
+               <Image url="@assets/pdf.png" />
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="clearFields" layoutX="265.0" layoutY="483.0" mnemonicParsing="false" onAction="#clearFields" prefHeight="50.0" prefWidth="174.0" styleClass="metal-button" text="Limpiar campos">
+         <graphic>
+            <ImageView fitHeight="20" fitWidth="20">
+               <Image url="@assets/cleaning.png" />
+            </ImageView>
+         </graphic>
+      </Button>
+      <Label fx:id="statuslabel" layoutX="226.0" layoutY="561.0" prefHeight="25.0" prefWidth="389.0" styleClass="statuslabel" />
+      <DatePicker fx:id="datePicker" layoutX="265.0" layoutY="222.0" prefHeight="31.0" prefWidth="433.0" />
+      <ImageView fitHeight="68.0" fitWidth="229.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@assets/App_logo_horizontal.png" />
+         </image>
+      </ImageView>
+      <Separator layoutX="200.0" orientation="VERTICAL" prefHeight="600.0" prefWidth="1.0" />
+      <Text fill="#05367b" layoutX="265.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="titlelabel" text="CREAR NUEVA RECETA" wrappingWidth="483.4000244140625">
+         <font>
+            <Font size="35.0" />
+         </font></Text>
+   </children>
+</Pane>
