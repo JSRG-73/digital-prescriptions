@@ -1,0 +1,121 @@
+@page {
+    size: letter;
+    margin: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 98vh;
+    text-align: center;
+    margin-top: 20;
+    margin-bottom: 10;
+    margin-left: 10;
+    margin-right: 10;
+}
+
+header {
+    display: flex;
+    width: 100%;
+    height: 150px;
+}
+
+.center {
+    flex-basis: 40%;
+    text-align: center;
+    padding-left: 15px;
+    width: 250;
+}
+
+.center h1 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 25px;
+}
+
+.center p {
+    font-size: 11px;
+}
+
+.middle {
+
+    text-align: left;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.right {
+    overflow: hidden;
+    height: 100%;
+    flex-basis: 40%;
+    display: flex;
+    justify-content: center;
+    height: 100%;
+}
+
+.right h4 {
+    margin: 0;
+    padding: 2px 0;
+    font-weight: normal;
+    font-size: 12px;
+}
+
+.left {
+
+    flex-basis: 20%;
+    display: flex;
+    justify-content: left;
+}
+
+#logo {
+
+    height: 150px;
+    width: 150px;
+}
+
+#transparente {
+    height: 150px;
+    width: 195px;
+}
+
+footer {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    font-size: 12;
+}
+
+.content {
+    flex: 1;
+    padding-left: 60px;
+    padding-right: 60px;
+    color: black;
+    text-align: left;
+    font-size: 16px;
+    white-space: pre-line;
+    max-width: 2320px;
+    overflow-wrap: break-word;
+    max-height: calc(35 * 1.5em); 
+    overflow: hidden;       
+  }
+
+.black {
+    color: black;
+    display: inline;
+    font-size: 17px;
+    vertical-align: middle;
+}
+
+.MOC {
+    vertical-align: bottom;
+    height: 100%;
+}
+
+#MOCTEZUMA {
+    position: absolute;
+    bottom: 0;
+}
+
+.bottomright{
+    bottom: 0;
+}
