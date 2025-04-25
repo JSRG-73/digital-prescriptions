@@ -59,9 +59,6 @@ public class NRController implements Initializable {
         datePicker.setValue(LocalDate.now());
         txtPatientName.setText(Name);
         txtDescription.setText(Description);
-
-        //measureWWidth();
-        //setupListeners();
     }
 
     @FXML
@@ -152,7 +149,7 @@ public class NRController implements Initializable {
         String time = now.format(DateTimeFormatter.ofPattern("hh-mm-ss a"));
         time = time.replace(".","");
 
-        if (patientName.isEmpty() || date.isEmpty() || description.isEmpty()) {
+        if (false) {
             System.out.println("Por favor, completa todos los campos antes de generar el PDF.");
         } else {
 
@@ -163,7 +160,7 @@ public class NRController implements Initializable {
             PdfGenerator pdfG = new PdfGenerator();
             String baseDir = AppConfig.getInstance().getBaseDirectory();
 
-            String filename = patientName + " " + date + " " + time;
+            String filename = "estermont";
 
             String htmlFilePath = baseDir + File.separator + "templates" + File.separator + "UC" + File.separator + FilterFileName.safeFilename(filename, "html");
             String htmlTemplatePath = "/templates/UC/UC.html";
@@ -175,16 +172,16 @@ public class NRController implements Initializable {
             pb.replaceDataShort(patientName, date, description);
             pb.saveHtml(pb.getHtml(), FilterFileName.safeFilename(filename, "html"));
 
-            pdfG.generate(simplePath);
+            /*pdfG.generate(simplePath);
             pdfG.savePdf(pdfG.getPdfBytes(), FilterFileName.safeFilename(filename, "pdf"));
             pdfG.generate(simplePath);
 
             JsonCreator js = new JsonCreator();
             boolean b = js.createJsonFile(patientName, date, description);
-            System.out.println(b);
+            System.out.println(b);*/
 
-            File myObj = new File(htmlFilePath);
-            myObj.delete();
+            //File myObj = new File(htmlFilePath);
+            //myObj.delete();
 
             txtPatientName.clear();
             txtDescription.clear();
@@ -203,25 +200,6 @@ public class NRController implements Initializable {
     private void closeApp(ActionEvent event) {
         Stage stage = StageManager.getPrimaryStage();
         stage.close();
-    }
-
-    private void updateStatus() {
-        String[] lines = txtDescription.getText().split("\n");
-        int currentLine = getCurrentLine(txtDescription.getText(), txtDescription.getCaretPosition());
-        String currentLineText = currentLine < lines.length ? lines[currentLine] : "";
-
-        Text helper = new Text(currentLineText);
-        helper.setFont(txtDescription.getFont());
-        double currentWidth = helper.getLayoutBounds().getWidth();
-
-        statuslabel.setText(String.format(
-                "Lines: %d/%d | Current line: %.1f/%.0f W-equivalents"
-
-        ));
-    }
-
-    private int getCurrentLine(String text, int caretPos) {
-        return text.substring(0, caretPos).split("\n", -1).length - 1;
     }
 
     private String formatDate() {

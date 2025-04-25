@@ -12,6 +12,58 @@
 
 </head>
 
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+    const contentEl = document.getElementById('content');
+    const originalText = contentEl.textContent.trim();
+    const chunks = [];
+    let remainingText = originalText;
+
+    // Reset content to get accurate measurements
+    contentEl.textContent = '';
+    
+    function getTextHeight(text) {
+        contentEl.textContent = text;
+        return contentEl.scrollHeight;
+    }
+
+    const maxVisibleHeight = contentEl.clientHeight;
+    
+    while (remainingText.length > 0) {
+        let low = 1;
+        let high = remainingText.length;
+        let bestFit = 0;
+        
+        // Binary search to find maximum fitting text length
+        while (low <= high) {
+            const mid = Math.floor((low + high) / 2);
+            const testText = remainingText.substring(0, mid);
+            const testHeight = getTextHeight(testText);
+            
+            if (testHeight <= maxVisibleHeight) {
+                bestFit = mid;
+                low = mid + 1;
+            } else {
+                high = mid - 1;
+            }
+        }
+
+        if (bestFit === 0) { // Edge case: single character overflow
+            bestFit = 1;
+        }
+        
+        const chunk = remainingText.substring(0, bestFit);
+        chunks.push(chunk);
+        remainingText = remainingText.substring(bestFit);
+    }
+
+    // Restore original content
+    contentEl.textContent = originalText;
+    
+    console.log('Text chunks:', chunks);
+});
+</script>
+
 <body>
     <header>
         <div class="left"><img src="UC_logo.png" alt="" id="logo"></div>
@@ -34,7 +86,7 @@
 
     </header>
 
-    <main class="content">
+    <main class="content" id="content">
         {{description}}
     </main>
 
@@ -42,6 +94,58 @@
         <div class="bottomleft"><p id="MOCTEZUMA">MOCTEZUMA No.187 CD DEL SOL <br> ZAPOPAN JALISCO <br> TEL. 33 3647-3034, 3331228255, 33 3122-1167</p></div>
         <div class="bottomright"><img src="transparente.png" alt="" id="transparente"></div>
     </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+        const contentEl = document.getElementById('content');
+        const originalText = contentEl.textContent.trim();
+        const chunks = [];
+        let remainingText = originalText;
+    
+        // Reset content to get accurate measurements
+        contentEl.textContent = '';
+        
+        function getTextHeight(text) {
+            contentEl.textContent = text;
+            return contentEl.scrollHeight;
+        }
+    
+        const maxVisibleHeight = contentEl.clientHeight;
+        
+        while (remainingText.length > 0) {
+            let low = 1;
+            let high = remainingText.length;
+            let bestFit = 0;
+            
+            // Binary search to find maximum fitting text length
+            while (low <= high) {
+                const mid = Math.floor((low + high) / 2);
+                const testText = remainingText.substring(0, mid);
+                const testHeight = getTextHeight(testText);
+                
+                if (testHeight <= maxVisibleHeight) {
+                    bestFit = mid;
+                    low = mid + 1;
+                } else {
+                    high = mid - 1;
+                }
+            }
+    
+            if (bestFit === 0) { // Edge case: single character overflow
+                bestFit = 1;
+            }
+            
+            const chunk = remainingText.substring(0, bestFit);
+            chunks.push(chunk);
+            remainingText = remainingText.substring(bestFit);
+        }
+    
+        // Restore original content
+        contentEl.textContent = originalText;
+        
+        console.log('Text chunks:', chunks);
+    });
+    </script>
 </body>
 
 </html>

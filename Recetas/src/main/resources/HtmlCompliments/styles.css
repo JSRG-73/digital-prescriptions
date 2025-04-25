@@ -93,9 +93,9 @@ footer {
     text-align: left;
     font-size: 16px;
     white-space: pre-line;
-    max-width: 2320px;
+    width: 300px;
     overflow-wrap: break-word;
-    max-height: calc(35 * 1.5em); 
+    height: calc(10 * 1.2em); 
     overflow: hidden;       
   }
 
