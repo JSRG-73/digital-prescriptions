@@ -172,6 +172,7 @@ public class NRController implements Initializable {
             pb.replaceDataShort(patientName, date, description);
             pb.saveHtml(pb.getHtml(), FilterFileName.safeFilename(filename, "html"));
 
+            System.out.println(description);
             /*pdfG.generate(simplePath);
             pdfG.savePdf(pdfG.getPdfBytes(), FilterFileName.safeFilename(filename, "pdf"));
             pdfG.generate(simplePath);

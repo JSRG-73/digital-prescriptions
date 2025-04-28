@@ -1,45 +1,40 @@
 package com.jorgerosas.recetas;
 
 import javafx.application.Application;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.TextArea;
+import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
+public class Test extends Application {
 
-public class Test {
+    @Override
+    public void start(Stage primaryStage) {
+        // Create a TextArea
+        TextArea textArea = new TextArea();
+        textArea.setPromptText("Enter text here...");
 
-    public static void createJsonFile(String key, String value, String folderPath, String fileName) {
-        // Create the JSON content as a simple string
-        String jsonContent = "{\n  \"" + key + "\": \"" + value + "\"\n}";
+        // Create a Button
+        Button button = new Button("Print Text");
+        button.setOnAction(event -> {
+            // Store the content of the TextArea in a String
+            String textContent = textArea.getText();
+            // Print the content to the console
+            System.out.println(textContent.length());
+        });
 
-        try {
-            // Ensure the folder exists
-            Path folder = Paths.get(folderPath);
+        // Create a layout and add the controls
+        VBox root = new VBox(10, textArea, button);
 
-            // Create the full path to the file
-            Path filePath = folder.resolve(fileName);
-
-            // Write the JSON string to the file
-            try (FileWriter writer = new FileWriter(filePath.toFile())) {
-                writer.write(jsonContent);
-                System.out.println("JSON file created at: " + filePath);
-            }
-        } catch (IOException e) {
-            System.err.println("Error creating JSON file: " + e.getMessage());
-        }
+        // Set up the scene and stage
+        Scene scene = new Scene(root, 300, 200);
+        primaryStage.setTitle("TextArea Example");
+        primaryStage.setScene(scene);
+        primaryStage.show();
     }
 
     public static void main(String[] args) {
-
-        String baseDir = AppConfig.getInstance().getBaseDirectory();
-        baseDir += File.separator +"templates"+ File.separator +"UC"+ File.separator;
-
-        //File myObj = new File(baseDir+"Carlos Alberto Castro Jiménez 12-abril-2025.html");
-        //myObj.delete();
-
-
+        launch(args);
     }
 }

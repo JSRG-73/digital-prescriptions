@@ -12,58 +12,6 @@
 
 </head>
 
-<script>
-    document.addEventListener('DOMContentLoaded', () => {
-    const contentEl = document.getElementById('content');
-    const originalText = contentEl.textContent.trim();
-    const chunks = [];
-    let remainingText = originalText;
-
-    // Reset content to get accurate measurements
-    contentEl.textContent = '';
-    
-    function getTextHeight(text) {
-        contentEl.textContent = text;
-        return contentEl.scrollHeight;
-    }
-
-    const maxVisibleHeight = contentEl.clientHeight;
-    
-    while (remainingText.length > 0) {
-        let low = 1;
-        let high = remainingText.length;
-        let bestFit = 0;
-        
-        // Binary search to find maximum fitting text length
-        while (low <= high) {
-            const mid = Math.floor((low + high) / 2);
-            const testText = remainingText.substring(0, mid);
-            const testHeight = getTextHeight(testText);
-            
-            if (testHeight <= maxVisibleHeight) {
-                bestFit = mid;
-                low = mid + 1;
-            } else {
-                high = mid - 1;
-            }
-        }
-
-        if (bestFit === 0) { // Edge case: single character overflow
-            bestFit = 1;
-        }
-        
-        const chunk = remainingText.substring(0, bestFit);
-        chunks.push(chunk);
-        remainingText = remainingText.substring(bestFit);
-    }
-
-    // Restore original content
-    contentEl.textContent = originalText;
-    
-    console.log('Text chunks:', chunks);
-});
-</script>
-
 <body>
     <header>
         <div class="left"><img src="UC_logo.png" alt="" id="logo"></div>
@@ -90,61 +38,76 @@
         {{description}}
     </main>
 
+    <!--<div class="controls">
+        <input type="range" id="heightSlider" min="0" max="1000" value="400">
+        <span id="heightValue">400px</span>
+        <button onclick="getVisibleText()">Get Visible Text</button>
+    </div>-->
+
     <footer>
         <div class="bottomleft"><p id="MOCTEZUMA">MOCTEZUMA No.187 CD DEL SOL <br> ZAPOPAN JALISCO <br> TEL. 33 3647-3034, 3331228255, 33 3122-1167</p></div>
         <div class="bottomright"><img src="transparente.png" alt="" id="transparente"></div>
     </footer>
 
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-        const contentEl = document.getElementById('content');
-        const originalText = contentEl.textContent.trim();
-        const chunks = [];
-        let remainingText = originalText;
-    
-        // Reset content to get accurate measurements
-        contentEl.textContent = '';
-        
-        function getTextHeight(text) {
-            contentEl.textContent = text;
-            return contentEl.scrollHeight;
+        document.addEventListener('click', (event) => {
+            console.log('Page Position - X:', event.pageX);
+            console.log('Page Position - Y:', event.pageY);
+        });
+
+
+        const contentDiv = document.getElementById('content');
+        const heightSlider = 400;
+        const heightValue = document.getElementById('heightValue');
+        const charCountSpan = document.getElementById('charCount');
+        const visibleTextDiv = document.getElementById('visibleText');
+
+        heightSlider.addEventListener('input', () => {
+            heightValue.textContent = `${heightSlider.value}px`;
+        });
+
+        function getVisibleText() {
+            const targetHeight = parseInt(heightSlider.value);
+            const result = getVisibleRange(contentDiv, targetHeight);
+
+            console.log("valor: ", heightSlider);
+
+            console.log("contador: ",result.count);
+            console.log("testo: ",result.text);
         }
-    
-        const maxVisibleHeight = contentEl.clientHeight;
-        
-        while (remainingText.length > 0) {
-            let low = 1;
-            let high = remainingText.length;
-            let bestFit = 0;
-            
-            // Binary search to find maximum fitting text length
-            while (low <= high) {
-                const mid = Math.floor((low + high) / 2);
-                const testText = remainingText.substring(0, mid);
-                const testHeight = getTextHeight(testText);
-                
-                if (testHeight <= maxVisibleHeight) {
-                    bestFit = mid;
-                    low = mid + 1;
-                } else {
-                    high = mid - 1;
-                }
+
+        function getVisibleRange(element, maxHeight) {
+            const textNode = element.firstChild;
+            if (!textNode || textNode.nodeType !== Node.TEXT_NODE) {
+                return { count: 0, text: '' };
             }
-    
-            if (bestFit === 0) { // Edge case: single character overflow
-                bestFit = 1;
+
+            const elementTop = element.getBoundingClientRect().top;
+            const cutoffY = elementTop + maxHeight;
+            let count = 0;
+            let lastVisibleIndex = 0;
+            const text = textNode.nodeValue;
+
+            for (let i = 0; i < text.length; i++) {
+                const range = document.createRange();
+                range.setStart(textNode, i);
+                range.setEnd(textNode, i + 1);
+
+                const rect = range.getBoundingClientRect();
+                if (rect.bottom > cutoffY) break;
+
+                count++;
+                lastVisibleIndex = i + 1; // +1 because substring is end-exclusive
             }
-            
-            const chunk = remainingText.substring(0, bestFit);
-            chunks.push(chunk);
-            remainingText = remainingText.substring(bestFit);
+
+            return {
+                count: count,
+                text: text.substring(0, lastVisibleIndex)
+            };
         }
-    
-        // Restore original content
-        contentEl.textContent = originalText;
-        
-        console.log('Text chunks:', chunks);
-    });
+
+        // Initial calculation
+        getVisibleText();
     </script>
 </body>
 
