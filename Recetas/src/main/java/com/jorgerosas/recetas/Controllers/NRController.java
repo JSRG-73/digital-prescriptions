@@ -153,6 +153,7 @@ public class NRController implements Initializable {
             System.out.println("Por favor, completa todos los campos antes de generar el PDF.");
         } else {
 
+            //**************Declarations*************************************************************
             patientName = patientName.replaceAll("[/\\\\]", "-");
             date = date.replaceAll("[/\\\\]", "-");
             description = description.replaceAll("[/\\\\]", "-");
@@ -160,7 +161,7 @@ public class NRController implements Initializable {
             PdfGenerator pdfG = new PdfGenerator();
             String baseDir = AppConfig.getInstance().getBaseDirectory();
 
-            String filename = "estermont";
+            String filename = patientName + " " + date + " " + time;
 
             String htmlFilePath = baseDir + File.separator + "templates" + File.separator + "UC" + File.separator + FilterFileName.safeFilename(filename, "html");
             String htmlTemplatePath = "/templates/UC/UC.html";
@@ -173,16 +174,16 @@ public class NRController implements Initializable {
             pb.saveHtml(pb.getHtml(), FilterFileName.safeFilename(filename, "html"));
 
             System.out.println(description);
-            /*pdfG.generate(simplePath);
+            pdfG.generate(simplePath);
             pdfG.savePdf(pdfG.getPdfBytes(), FilterFileName.safeFilename(filename, "pdf"));
             pdfG.generate(simplePath);
 
             JsonCreator js = new JsonCreator();
             boolean b = js.createJsonFile(patientName, date, description);
-            System.out.println(b);*/
+            System.out.println(b);
 
-            //File myObj = new File(htmlFilePath);
-            //myObj.delete();
+            File myObj = new File(htmlFilePath);
+            myObj.delete();
 
             txtPatientName.clear();
             txtDescription.clear();

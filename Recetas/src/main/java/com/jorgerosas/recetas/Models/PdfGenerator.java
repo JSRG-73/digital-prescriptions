@@ -98,7 +98,6 @@ public class PdfGenerator {
         System.out.println("handler: " + simplePath);
         pdfG.generate(simplePath);
         pdfG.savePdf(pdfG.getPdfBytes(),"Test6.pdf");
-        //Files.write(Paths.get("output.pdf"), pdfBytes);
-        //System.out.println("PDF");
+
     }
 }
