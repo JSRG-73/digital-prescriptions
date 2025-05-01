@@ -11,6 +11,7 @@ module com.jorgerosas.recetas {
     requires dev.failsafe.core;
     requires javafx.web;
     requires json.simple;
+    requires org.apache.pdfbox;
 
     exports com.jorgerosas.recetas to javafx.graphics, javafx.fxml;
     exports com.jorgerosas.recetas.Models;

@@ -24,6 +24,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Locale;
 import java.util.ResourceBundle;
@@ -163,27 +164,43 @@ public class NRController implements Initializable {
 
             String filename = patientName + " " + date + " " + time;
 
-            String htmlFilePath = baseDir + File.separator + "templates" + File.separator + "UC" + File.separator + FilterFileName.safeFilename(filename, "html");
+            //String htmlFilePath = baseDir + File.separator + "templates" + File.separator + "UC" + File.separator + FilterFileName.safeFilename(filename, "html");
             String htmlTemplatePath = "/templates/UC/UC.html";
+
+            String pdfpath = baseDir + File.separator + "Recetas" + File.separator + filename + ".pdf";
 
             String simplePath = pdfG.pathHandler(FilterFileName.safeFilename(filename, "html"));
 
+            //****************************************************************************************
+
+            //Generate Json
+            JsonCreator js = new JsonCreator();
+            boolean b = js.createJsonFile(patientName, date, description);
+
+            //Save linebreaks positions
+            ArrayList<Integer> linebreakIndexes = (ArrayList<Integer>) StringHandler.getLineBreakIndexes(description);
+            System.out.println(linebreakIndexes);
+
+            //Create html
             PrescriptionBuilder pb = new PrescriptionBuilder(htmlTemplatePath);
             pb.readHtmlFromResources();
+
             pb.replaceDataShort(patientName, date, description);
             pb.saveHtml(pb.getHtml(), FilterFileName.safeFilename(filename, "html"));
 
-            System.out.println(description);
+            //Generate pdf
             pdfG.generate(simplePath);
             pdfG.savePdf(pdfG.getPdfBytes(), FilterFileName.safeFilename(filename, "pdf"));
-            pdfG.generate(simplePath);
 
-            JsonCreator js = new JsonCreator();
-            boolean b = js.createJsonFile(patientName, date, description);
-            System.out.println(b);
+            PdfReader reader = new PdfReader(pdfpath);
+            String contentfrompdf = reader.getContent();
+            contentfrompdf = StringHandler.removeLineBreaks(contentfrompdf);
+            System.out.println(contentfrompdf);
 
-            File myObj = new File(htmlFilePath);
-            myObj.delete();
+
+            //Delete html
+            //File myObj = new File(htmlFilePath);
+            //myObj.delete();
 
             txtPatientName.clear();
             txtDescription.clear();

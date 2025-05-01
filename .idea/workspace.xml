@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="DrBarragan:jar" />
+    </artifacts-to-build>
+  </component>
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="34c17e56-e89f-402e-b61d-1f3ebc7d988a" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Recetario Digital.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/DrBarragan_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Recetas/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Recetas/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Recetas/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Recetas/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Recetas/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Recetas/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Recetas/src/main/java/com/jorgerosas/recetas/Controllers/NRController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Recetas/src/main/java/com/jorgerosas/recetas/Controllers/NRController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Recetas/src/main/java/com/jorgerosas/recetas/Models/PdfGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/Recetas/src/main/java/com/jorgerosas/recetas/Models/PdfGenerator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Recetas/src/main/java/com/jorgerosas/recetas/Models/PdfReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/Recetas/src/main/java/com/jorgerosas/recetas/Models/PdfReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Recetas/src/main/java/com/jorgerosas/recetas/Models/PrescriptionBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/Recetas/src/main/java/com/jorgerosas/recetas/Models/PrescriptionBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Recetas/src/main/java/com/jorgerosas/recetas/Models/StringHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/Recetas/src/main/java/com/jorgerosas/recetas/Models/StringHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Recetas/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/Recetas/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Recetas/src/main/resources/HtmlCompliments/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/Recetas/src/main/resources/HtmlCompliments/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Recetas/src/main/resources/templates/UC/UC.html" beforeDir="false" afterPath="$PROJECT_DIR$/Recetas/src/main/resources/templates/UC/UC.html" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="FxmlFile" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 8
+}</component>
+  <component name="ProjectId" id="2uc2kAJXxV9tRluCFZQOGFaWJUS" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.EntryPoint.executor&quot;: &quot;Run&quot;,
+    &quot;Application.HTMLViewer.executor&quot;: &quot;Run&quot;,
+    &quot;Application.HelloApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Application.HtmlFileLister.executor&quot;: &quot;Run&quot;,
+    &quot;Application.HtmlViewer.executor&quot;: &quot;Run&quot;,
+    &quot;Application.JsonCreator.executor&quot;: &quot;Run&quot;,
+    &quot;Application.JsonReader.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;Application.MainClass.executor&quot;: &quot;Run&quot;,
+    &quot;Application.OldPdfGenerator.executor&quot;: &quot;Run&quot;,
+    &quot;Application.PdfGenerator.executor&quot;: &quot;Run&quot;,
+    &quot;Application.PrescriptionBuilder.executor&quot;: &quot;Run&quot;,
+    &quot;Application.SeleniumTest.executor&quot;: &quot;Run&quot;,
+    &quot;Application.StringHandler.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Test.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Try2.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Try3.executor&quot;: &quot;Run&quot;,
+    &quot;Application.WebDriverPdfGenerator.executor&quot;: &quot;Run&quot;,
+    &quot;Application.WebpageToPDF.executor&quot;: &quot;Run&quot;,
+    &quot;Application.com.jorgerosas.recetas.Test.executor&quot;: &quot;Run&quot;,
+    &quot;Application.test2.executor&quot;: &quot;Run&quot;,
+    &quot;Maven. [clean,install].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.Recetas [-X,clean,install].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.Recetas [-X,package].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.Recetas [clean,install,-U...].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.Recetas [clean,install,-U].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.Recetas [clean,install...].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.Recetas [clean,install].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.Recetas [clean,package,-U].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.Recetas [clean,package].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.Recetas [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.Recetas [dependency:analyze].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.Recetas [dependency:purge-local-repository].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.Recetas [dependency:tree,|,grep,brotli4j].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.Recetas [dependency:tree...].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.Recetas [dependency:tree].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.Recetas [validate].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.recetas [dependency:purge-local-repository].executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;new-branch&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Program Files/Java/javafx-sdk-23.0.2/bin&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.16308594&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;project.propCompiler&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Projects\DrBarragan\Recetas\src\main\resources\com\jorgerosas\recetas\assets" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.jorgerosas.recetas" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.jorgerosas.recetas" />
+      <recent name="com.jorgerosas.recetas.Controllers" />
+    </key>
+  </component>
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value="mvn dependency:tree -Dincludes=dev.failsafe" />
+      <command value="mvn dependency:tree -Dincludes=org.apache.httpcomponents" />
+      <command value="mvn dependency:tree -Dincludes=org.apache.commons:commons-lang3" />
+      <command value="bash Copy  mvn clean install -U" />
+      <command value="mvn clean install -U -Dmaven.main.skip=true -Dmaven.test.skip=true" />
+      <command value="mvn clean package -U" />
+      <command value="rm -rf ~/.m2/repository/com/aayushatharva/brotli4j" />
+      <command value="mvn dependency:tree | grep brotli4j" />
+      <command value="mvn dependency:tree -Dincludes=com.aayushatharva.brotli4j" />
+      <command value="vn clean install -Dmaven.test.skip=true" />
+      <command value="mvn clean install -Dmaven.test.skip=true" />
+      <command value="mvn dependency:tree" />
+      <command value="mvn dependency:purge-local-repository" />
+      <command value="mvn clean install" />
+      <command value="mvn validate" />
+      <command value="mvn -X clean install" />
+      <command value="mvn clean" />
+      <command value="mvn -X package" />
+      <command value="mvn dependency:analyze" />
+      <command value="mvn clean install -U" />
+      <command value="mvn clean package" />
+    </option>
+  </component>
+  <component name="RunManager" selected="Application.EntryPoint">
+    <configuration name="EntryPoint" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.jorgerosas.recetas.EntryPoint" />
+      <module name="DrBarragan" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.jorgerosas.recetas.Models.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PrescriptionBuilder" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.jorgerosas.recetas.Models.PrescriptionBuilder" />
+      <module name="Recetas" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.jorgerosas.recetas.Models.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="StringHandler" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.jorgerosas.recetas.Models.StringHandler" />
+      <module name="DrBarragan" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.jorgerosas.recetas.Models.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.jorgerosas.recetas.Test" />
+      <module name="Recetas" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.jorgerosas.recetas.Controllers.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Unnamed" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Recetas" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="test2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.jorgerosas.recetas.test2" />
+      <module name="Recetas" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.jorgerosas.recetas.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.Unnamed" />
+      <item itemvalue="Application.StringHandler" />
+      <item itemvalue="Application.test2" />
+      <item itemvalue="Application.Test" />
+      <item itemvalue="Application.EntryPoint" />
+      <item itemvalue="Application.PrescriptionBuilder" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.EntryPoint" />
+        <item itemvalue="Application.StringHandler" />
+        <item itemvalue="Application.test2" />
+        <item itemvalue="Application.Test" />
+        <item itemvalue="Application.PrescriptionBuilder" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="34c17e56-e89f-402e-b61d-1f3ebc7d988a" name="Changes" comment="" />
+      <created>1742533683153</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1742533683153</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.ClassNotFoundException" package="java.lang" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/DrBarragan$Main.ic" NAME="Main Coverage Results" MODIFIED="1743803675178" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>com.jorgerosas.recetas.*</FILTER>
+    </SUITE>
+  </component>
+</project>

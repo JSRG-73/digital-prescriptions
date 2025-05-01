@@ -90,14 +90,4 @@ public class PdfGenerator {
         return fileUrl;
     }
 
-    public static void main(String[] args) throws IOException {
-
-        PdfGenerator pdfG =new PdfGenerator();
-
-        String simplePath = pdfG.pathHandler("test.html");
-        System.out.println("handler: " + simplePath);
-        pdfG.generate(simplePath);
-        pdfG.savePdf(pdfG.getPdfBytes(),"Test6.pdf");
-
-    }
 }

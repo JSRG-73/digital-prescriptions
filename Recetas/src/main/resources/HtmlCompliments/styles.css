@@ -89,8 +89,8 @@ footer {
     color: black;
     text-align: left;
     font-size: 16px;
-    white-space: pre-line;
-    width: 300px;
+    white-space: pre-wrap;
+    width: 600px;
     overflow-wrap: break-word;
     /*height: calc(30 * 1.2em); */
     height: 1000px;
@@ -120,14 +120,11 @@ footer {
 
 /*************************Borrar********************************************/
 
-.controls {
-    margin: 20px;
-}
-
-#visibleText {
-    border: 1px solid #eee;
-    padding: 10px;
-    margin-top: 10px;
-    white-space: pre-wrap;
-    background: #f9f9f9;
-}
+.invisible-marker {
+    display: inline-block;
+    width: 0;
+    height: 0;
+    overflow: hidden;      /* por si acaso */
+    font-size: 0;          /* elimina cualquier glifo interno */
+    line-height: 0;        /* evita afectar el alto de línea */
+  }

@@ -1,6 +1,7 @@
 package com.jorgerosas.recetas.Models;
 
 import com.jorgerosas.recetas.AppConfig;
+import org.apache.pdfbox.Loader;
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.text.PDFTextStripper;
 
@@ -12,14 +13,13 @@ public class PdfReader {
 
     private String content;
 
-    public PdfReader(String path){
-
-        try (PDDocument document = PDDocument.load(new File(path))) {
+    public PdfReader(String path) {
+        try (PDDocument document = Loader.loadPDF(new File(path))) { // Use Loader.loadPDF()
             PDFTextStripper stripper = new PDFTextStripper();
             String s = stripper.getText(document);
 
-            s=removeHeader(s);
-            s=removeFooter(s);
+            s = removeHeader(s);
+            s = removeFooter(s);
 
             this.content = s;
 
