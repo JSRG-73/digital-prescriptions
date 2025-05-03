@@ -20,7 +20,7 @@ public class JsonCreator {
 
     public JsonCreator(){
         String baseDir = AppConfig.getInstance().getBaseDirectory();
-        baseDir += File.separator +"templates"+ File.separator +"UC";
+        baseDir += File.separator +"savedrecipes";
         this.BASE_DIRECTORY=baseDir;
     }
 

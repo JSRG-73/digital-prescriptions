@@ -95,13 +95,13 @@ public class SearchController implements Initializable {
     private void removeJson(ActionEvent event){
 
         String baseDir = AppConfig.getInstance().getBaseDirectory();
-        Path templatesDir= Paths.get(baseDir, "templates");
+        Path templatesDir= Paths.get(baseDir, "savedrecipes");
 
         String selectedJson = filesTable.getSelectionModel().getSelectedItem();
 
         if(selectedJson!=null){
-            System.out.println(templatesDir + "UC" + File.separator + File.separator + selectedJson);
-            File myObj = new File(templatesDir + File.separator + "UC" + File.separator + selectedJson);
+            System.out.println(templatesDir + File.separator + selectedJson);
+            File myObj = new File(templatesDir + File.separator + selectedJson);
             myObj.delete();
         } else{
             System.out.println("Select an item");
@@ -127,7 +127,7 @@ public class SearchController implements Initializable {
 
         //This sets the path to templates directory
         String baseDir = AppConfig.getInstance().getBaseDirectory();
-        Path templatesDir= Paths.get(baseDir, "templates");
+        Path templatesDir= Paths.get(baseDir, "savedrecipes");
 
         //loads all json files from templates
         loadJsonFiles(templatesDir);
@@ -174,7 +174,7 @@ public class SearchController implements Initializable {
                     // Your existing logic here (e.g., load JSON and open new scene)
                     try {
                         String baseDir1 = AppConfig.getInstance().getBaseDirectory();
-                        baseDir1 += File.separator + "templates" + File.separator + "UC" + File.separator + selectedItem;
+                        baseDir1 += File.separator + "savedrecipes" + File.separator + selectedItem;
                         JsonReader jr = new JsonReader();
                         jr.readJsonFile(baseDir1);
 

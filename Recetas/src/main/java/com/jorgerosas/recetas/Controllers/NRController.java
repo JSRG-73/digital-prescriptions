@@ -24,6 +24,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Locale;
 import java.util.ResourceBundle;
@@ -43,6 +44,9 @@ public class NRController implements Initializable {
     private DatePicker datePicker;
 
     @FXML
+    private ToggleGroup sizeGroup;
+
+    @FXML
     private Pane mainPane;
 
     private final String Name;
@@ -59,9 +63,6 @@ public class NRController implements Initializable {
         datePicker.setValue(LocalDate.now());
         txtPatientName.setText(Name);
         txtDescription.setText(Description);
-
-        //measureWWidth();
-        //setupListeners();
     }
 
     @FXML
@@ -141,8 +142,12 @@ public class NRController implements Initializable {
         }
     }
 
+
     @FXML
     private void generatePDF(ActionEvent event) throws IOException {
+
+        RadioButton pageSize = (RadioButton) sizeGroup.getSelectedToggle();
+
         System.out.println("Generando PDF...");
         String patientName = txtPatientName.getText();
         String date = formatDate();
@@ -156,46 +161,67 @@ public class NRController implements Initializable {
             System.out.println("Por favor, completa todos los campos antes de generar el PDF.");
         } else {
 
+            //**************Declarations*************************************************************
             patientName = patientName.replaceAll("[/\\\\]", "-");
             date = date.replaceAll("[/\\\\]", "-");
             description = description.replaceAll("[/\\\\]", "-");
+            String auxDescription=description;
+            String finalfilename = patientName + " " + date + " " + time;
+            String htmlTemplatePath;
 
-            PdfGenerator pdfG = new PdfGenerator();
+            if(pageSize.getId().equals("fullSize")) {
+                htmlTemplatePath = "/templates/UC/UC.html";
+            }else{
+                htmlTemplatePath = "/templates/UC/UC-half.html";
+            }
+
+            ArrayList<String> pdfList = new ArrayList<String>();
+            ArrayList<String> htmlList = new ArrayList<String>();
+
             String baseDir = AppConfig.getInstance().getBaseDirectory();
+            String pdfpath = baseDir + File.separator + "Recetas";
+            String htmlpath = baseDir + File.separator + "Html";
 
-            String filename = patientName + " " + date + " " + time;
-
-            String htmlFilePath = baseDir + File.separator + "templates" + File.separator + "UC" + File.separator + FilterFileName.safeFilename(filename, "html");
-            String htmlTemplatePath = "/templates/UC/UC.html";
-
-            String simplePath = pdfG.pathHandler(FilterFileName.safeFilename(filename, "html"));
-
-            PrescriptionBuilder pb = new PrescriptionBuilder(htmlTemplatePath);
-            pb.readHtmlFromResources();
-            pb.replaceDataShort(patientName, date, description);
-            pb.saveHtml(pb.getHtml(), FilterFileName.safeFilename(filename, "html"));
-
-            pdfG.generate(simplePath);
-            pdfG.savePdf(pdfG.getPdfBytes(), FilterFileName.safeFilename(filename, "pdf"));
-            pdfG.generate(simplePath);
-
+            //Generate Json
             JsonCreator js = new JsonCreator();
             boolean b = js.createJsonFile(patientName, date, description);
-            System.out.println(b);
 
-            File myObj = new File(htmlFilePath);
-            myObj.delete();
+
+            int i=0;
+            do {
+                auxDescription = singlePdf(i, htmlTemplatePath, patientName, date, auxDescription);
+                pdfList.add("temporal" + i + ".pdf");
+                htmlList.add("temporal" + i + ".html");
+
+                if(auxDescription.equals("")) break;
+
+                i++;
+            } while (true);
+
+            PdfMerger.merge(pdfList,pdfpath);
+
+            FileDeleter.deleteFiles(pdfList, pdfpath);
+            FileDeleter.deleteFiles(htmlList, htmlpath);
 
             txtPatientName.clear();
             txtDescription.clear();
 
             System.out.println("PDF generado para: " + patientName);
+
+            File file = new File(pdfpath+File.separator+"MergedPdf.pdf");
+            File rename = new File(pdfpath+File.separator+ finalfilename +".pdf");
+
+            if (file.renameTo(rename)) {
+                System.out.println("File Successfully Rename");
+            }
+            else {
+                System.out.println("Operation Failed");
+            }
         }
     }
 
     @FXML
     private void about(ActionEvent event) {
-        System.out.println("about");
         InfoDialog.showInfo();
     }
 
@@ -205,23 +231,42 @@ public class NRController implements Initializable {
         stage.close();
     }
 
-    private void updateStatus() {
-        String[] lines = txtDescription.getText().split("\n");
-        int currentLine = getCurrentLine(txtDescription.getText(), txtDescription.getCaretPosition());
-        String currentLineText = currentLine < lines.length ? lines[currentLine] : "";
-
-        Text helper = new Text(currentLineText);
-        helper.setFont(txtDescription.getFont());
-        double currentWidth = helper.getLayoutBounds().getWidth();
-
-        statuslabel.setText(String.format(
-                "Lines: %d/%d | Current line: %.1f/%.0f W-equivalents"
-
-        ));
+    @FXML
+    private void openTemplateView(ActionEvent event){
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("/com/jorgerosas/recetas/TemplateSelector.fxml"));
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(new Scene(root));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
-    private int getCurrentLine(String text, int caretPos) {
-        return text.substring(0, caretPos).split("\n", -1).length - 1;
+    private String singlePdf(int currentNumber, String HtmlTemplatePath, String patientName, String date, String auxDescription) throws IOException {
+
+        String currentname="temporal"+currentNumber;
+
+        //Create html
+        PrescriptionBuilder pb = new PrescriptionBuilder(HtmlTemplatePath);
+        pb.readHtmlFromResources();
+        pb.replaceDataShort(patientName, date, auxDescription);
+        pb.saveHtml(pb.getHtml(), FilterFileName.safeFilename(currentname, "html"));
+
+        //Generate pdf
+        PdfGenerator pdfG = new PdfGenerator();
+        String browserPath = pdfG.pathHandler(FilterFileName.safeFilename(currentname, "html"));
+        pdfG.generate(browserPath);
+        pdfG.savePdf(pdfG.getPdfBytes(), FilterFileName.safeFilename(currentname, "pdf"));
+
+        //Separate pdf text from the remaining text
+        String baseDir = AppConfig.getInstance().getBaseDirectory();
+        String pdfpath = baseDir + File.separator + "Recetas" + File.separator + currentname + ".pdf";
+        PdfReader reader = new PdfReader(pdfpath);
+        String contentfrompdf = reader.getContent();
+        contentfrompdf = StringHandler.removeLineBreaks(contentfrompdf);
+        auxDescription=auxDescription.substring(StringHandler.findEndOfFragment(auxDescription,contentfrompdf));
+
+        return auxDescription;
     }
 
     private String formatDate() {
@@ -230,7 +275,6 @@ public class NRController implements Initializable {
 
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d-MMMM-yyyy", new Locale("es", "ES"));
         String formattedDate = selectedDate.format(formatter);
-        System.out.println(formattedDate);
         return formattedDate;
     }
 }

@@ -61,7 +61,7 @@ public class PrescriptionBuilder {
     public void saveHtml(String htmlContent, String filename) throws IOException {
 
         String baseDir = AppConfig.getInstance().getBaseDirectory();
-        Path outputPath = Paths.get(baseDir, "templates"+File.separator+"UC", filename);
+        Path outputPath = Paths.get(baseDir, "Html", filename);
 
         Files.createDirectories(outputPath.getParent());
 
@@ -70,19 +70,4 @@ public class PrescriptionBuilder {
         System.out.println("HTML saved to: " + outputPath.toAbsolutePath());
     }
 
-    public static void main(String[] args) throws IOException {
-
-        String baseDir = AppConfig.getInstance().getBaseDirectory()+"/templates/UC/UC.html";
-
-        PrescriptionBuilder pb = new PrescriptionBuilder("/templates/UC/UC.html");
-        pb.readHtmlFromResources();
-        pb.replaceDataShort("Pedro Pérez", "12/12/12", "Descripción");
-        System.out.println("String: "+baseDir);
-
-        String htmlFilePath = baseDir+"/templates/UC/alic.html";
-
-        // Generate HTML 
-        pb.saveHtml(pb.getHtml(),"cine.html");
-
-    }
 }

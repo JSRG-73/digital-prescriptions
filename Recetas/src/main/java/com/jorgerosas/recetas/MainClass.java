@@ -8,6 +8,8 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.scene.image.Image;
 import java.awt.*;
+import java.io.IOException;
+import java.net.URISyntaxException;
 
 public class MainClass extends Application {
 
@@ -28,7 +30,15 @@ public class MainClass extends Application {
 
     public static void main(String[] args) {
 
-        TemplateCopier.main();
+        String baseDir = AppConfig.getInstance().getBaseDirectory();
+
+        try {
+            TemplateCopier.copyTemplates(baseDir);
+            System.out.println("Templates copied successfully!");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
         launch(args);
     }
 }

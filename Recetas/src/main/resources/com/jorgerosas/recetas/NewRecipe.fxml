@@ -4,6 +4,7 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
@@ -14,11 +15,12 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
+<?import javafx.scene.control.ToggleGroup?>
 <Pane fx:id="mainPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" stylesheets="@FxmlView.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jorgerosas.recetas.Controllers.NRController">
    <children>
-      <VBox layoutY="109.0" prefHeight="276.0" prefWidth="200.0" spacing="10.0">
+      <VBox layoutY="82.0" prefHeight="303.0" prefWidth="200.0" spacing="10.0">
          <children>
-            <Button fx:id="btnGoHome" mnemonicParsing="false" onAction="#goHome" prefHeight="50.0" prefWidth="200.0" styleClass="metal-button" text="Volver">
+            <Button fx:id="btnGoHome" mnemonicParsing="false" onAction="#goHome" prefHeight="50.0" prefWidth="200.0" styleClass="metal-button" text="Menú Principal">
                <graphic>
                   <ImageView fitHeight="20" fitWidth="20">
                      <Image url="@assets/home.png" />
@@ -44,43 +46,43 @@
             <Insets bottom="100.0" />
          </padding>
       </VBox>
-      <TextField fx:id="txtPatientName" layoutX="265.0" layoutY="137.0" prefHeight="38.0" prefWidth="433.0" />
-      <TextArea fx:id="txtDescription" layoutX="265.0" layoutY="300.0" prefHeight="121.0" prefWidth="433.0" />
-      <Label fx:id="labelname" layoutX="265.0" layoutY="90.0" prefHeight="38.0" prefWidth="128.0" styleClass="standarlabel" text="Nombre" textFill="#05367b">
+      <TextField fx:id="txtPatientName" layoutX="265.0" layoutY="115.0" prefHeight="38.0" prefWidth="433.0" />
+      <TextArea fx:id="txtDescription" layoutX="265.0" layoutY="278.0" prefHeight="210.0" prefWidth="433.0" />
+      <Label fx:id="labelname" layoutX="265.0" layoutY="68.0" prefHeight="38.0" prefWidth="128.0" styleClass="standarlabel" text="Nombre" textFill="#05367b">
          <font>
             <Font name="Times New Roman Bold" size="15.0" />
          </font></Label>
-      <Label fx:id="labeldate" layoutX="265.0" layoutY="186.0" prefHeight="25.0" prefWidth="128.0" styleClass="standarlabel" text="Fecha" textFill="#05367b">
+      <Label fx:id="labeldate" layoutX="265.0" layoutY="164.0" prefHeight="25.0" prefWidth="128.0" styleClass="standarlabel" text="Fecha" textFill="#05367b">
          <font>
             <Font name="System Bold" size="15.0" />
          </font></Label>
-      <Label fx:id="labeldescription" layoutX="265.0" layoutY="256.0" prefHeight="38.0" prefWidth="128.0" styleClass="standarlabel" text="Descripción" textFill="#05367b">
+      <Label fx:id="labeldescription" layoutX="265.0" layoutY="234.0" prefHeight="38.0" prefWidth="128.0" styleClass="standarlabel" text="Descripción" textFill="#05367b">
          <font>
             <Font name="Times New Roman Bold" size="15.0" />
          </font></Label>
-      <Button fx:id="btngenereatePDF" layoutX="524.0" layoutY="483.0" mnemonicParsing="false" onAction="#generatePDF" prefHeight="50.0" prefWidth="174.0" styleClass="metal-button" text="Generar PDF">
+      <Button fx:id="btngenereatePDF" layoutX="524.0" layoutY="499.0" mnemonicParsing="false" onAction="#generatePDF" prefHeight="50.0" prefWidth="174.0" styleClass="metal-button" text="Generar PDF">
          <graphic>
             <ImageView fitHeight="20" fitWidth="20">
                <Image url="@assets/pdf.png" />
             </ImageView>
          </graphic>
       </Button>
-      <Button fx:id="clearFields" layoutX="265.0" layoutY="483.0" mnemonicParsing="false" onAction="#clearFields" prefHeight="50.0" prefWidth="174.0" styleClass="metal-button" text="Limpiar campos">
+      <Button fx:id="clearFields" layoutX="265.0" layoutY="499.0" mnemonicParsing="false" onAction="#clearFields" prefHeight="50.0" prefWidth="174.0" styleClass="metal-button" text="Limpiar campos">
          <graphic>
             <ImageView fitHeight="20" fitWidth="20">
                <Image url="@assets/cleaning.png" />
             </ImageView>
          </graphic>
       </Button>
-      <Label fx:id="statuslabel" layoutX="226.0" layoutY="561.0" prefHeight="25.0" prefWidth="389.0" styleClass="statuslabel" />
-      <DatePicker fx:id="datePicker" layoutX="265.0" layoutY="222.0" prefHeight="31.0" prefWidth="433.0" />
+      <Label fx:id="statuslabel" layoutX="222.0" layoutY="561.0" prefHeight="25.0" prefWidth="533.0" styleClass="statuslabel" />
+      <DatePicker fx:id="datePicker" layoutX="265.0" layoutY="200.0" prefHeight="31.0" prefWidth="233.0" />
       <ImageView fitHeight="68.0" fitWidth="229.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@assets/App_logo_horizontal.png" />
          </image>
       </ImageView>
       <Separator layoutX="200.0" orientation="VERTICAL" prefHeight="600.0" prefWidth="1.0" styleClass="vertical_separator" />
-      <Text fill="#05367b" layoutX="265.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="titlelabel" text="CREAR NUEVA RECETA" wrappingWidth="483.4000244140625">
+      <Text fill="#05367b" layoutX="265.0" layoutY="45.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="titlelabel" text="CREAR NUEVA RECETA" wrappingWidth="483.4000244140625">
          <font>
             <Font size="35.0" />
          </font></Text>
@@ -98,5 +100,17 @@
             </ImageView>
          </graphic>
       </Button>
+      <Label fx:id="labeldate1" layoutX="548.0" layoutY="164.0" prefHeight="25.0" prefWidth="128.0" styleClass="standarlabel" text="Plantilla" textFill="#05367b">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+
+      <fx:define>
+         <ToggleGroup fx:id="sizeGroup"/>
+      </fx:define>
+
+      <RadioButton fx:id="fullSize" layoutX="547.0" layoutY="200.0" mnemonicParsing="false" text="Tamaño carta" toggleGroup="$sizeGroup" selected="true"/>
+      <RadioButton fx:id="halfSize" layoutX="547.0" layoutY="226.0" mnemonicParsing="false" text="Tamaño media carta" toggleGroup="$sizeGroup"/>
    </children>
 </Pane>
