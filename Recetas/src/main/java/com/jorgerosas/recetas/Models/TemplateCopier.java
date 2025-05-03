@@ -15,16 +15,9 @@ public class TemplateCopier {
 
     private static final String RESOURCE_FOLDER = "HtmlCompliments";
 
-    /**
-     * Copies all files from the classpath folder HtmlCompliments into
-     * {destinationDir}/savedrecipes, handling both IDE (file://) and JAR (jar://) modes.
-     *
-     * @param destinationDir the external base directory; "savedrecipes" is created inside it
-     * @throws IOException        on I/O errors
-     * @throws URISyntaxException on malformed resource URL
-     */
+
     public static void copyTemplates(String destinationDir) throws IOException, URISyntaxException {
-        // Prepare target directory: {destinationDir}/savedrecipes
+
         Path targetDir = Paths.get(destinationDir, "Html");
         if (Files.notExists(targetDir)) {
             Files.createDirectories(targetDir);  // create parent dirs if needed :contentReference[oaicite:3]{index=3}

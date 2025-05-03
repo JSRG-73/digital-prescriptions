@@ -47,11 +47,4 @@ public class AppConfig {
         return Paths.get(baseDirectory);
     }
 
-    // Optional: Ensure the directory exists
-    public void ensureDirectoryExists() throws IOException {
-        Path path = getBaseDirectoryPath();
-        if (!Files.exists(path)) {
-            Files.createDirectories(path);
-        }
-    }
 }

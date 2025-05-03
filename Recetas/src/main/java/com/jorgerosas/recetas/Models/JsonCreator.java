@@ -29,7 +29,7 @@ public class JsonCreator {
 
 
             // Create filename
-            String fileName = FilterFileName.safeFilename(name + "_" +date, "json");
+            String fileName = FilterFileName.safeFilename(name + " " +date, "json");
 
             // Create directory if needed
             Files.createDirectories(Paths.get(BASE_DIRECTORY));

@@ -38,11 +38,10 @@ public class MainController {
             throw new IOException("Failed to create directory: " + baseDir);
         }
 
-        // Use the Desktop API if supported (works on Windows and macOS)
         if (Desktop.isDesktopSupported()) {
             Desktop.getDesktop().open(dir);
         } else {
-            // Fallback to OS-specific command execution
+
             String osName = System.getProperty("os.name").toLowerCase();
             if (osName.contains("win")) {
                 Runtime.getRuntime().exec("explorer " + dir.getAbsolutePath());

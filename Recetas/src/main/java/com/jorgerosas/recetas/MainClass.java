@@ -21,7 +21,6 @@ public class MainClass extends Application {
         primaryStage.getIcons().add(icon);
 
         VBox root = (VBox) FXMLLoader.load(getClass().getResource("Main-view.fxml"));
-        //VBox root = (VBox) FXMLLoader.load(getClass().getResource("text-area.fxml"));
         Scene scene = new Scene(root, 800, 500);
         primaryStage.setTitle("Recetas Digitales");
         primaryStage.setScene(scene);
