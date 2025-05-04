@@ -191,8 +191,8 @@ public class NRController implements Initializable {
             int i=0;
             do {
                 auxDescription = singlePdf(i, htmlTemplatePath, patientName, date, auxDescription);
-                pdfList.add("temporal" + i + ".pdf");
-                htmlList.add("temporal" + i + ".html");
+                pdfList.add("Pagina-" + i + ".pdf");
+                htmlList.add("Pagina-" + i + ".html");
 
                 if(auxDescription.equals("")) break;
 
@@ -232,20 +232,9 @@ public class NRController implements Initializable {
         stage.close();
     }
 
-    @FXML
-    private void openTemplateView(ActionEvent event){
-        try {
-            Parent root = FXMLLoader.load(getClass().getResource("/com/jorgerosas/recetas/TemplateSelector.fxml"));
-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            stage.setScene(new Scene(root));
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
     private String singlePdf(int currentNumber, String HtmlTemplatePath, String patientName, String date, String auxDescription) throws IOException {
 
-        String currentname="temporal"+currentNumber;
+        String currentname="Pagina-"+currentNumber;
 
         //Create html
         PrescriptionBuilder pb = new PrescriptionBuilder(HtmlTemplatePath);
