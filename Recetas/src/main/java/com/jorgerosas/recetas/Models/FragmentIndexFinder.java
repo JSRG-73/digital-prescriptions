@@ -39,21 +39,5 @@ public class FragmentIndexFinder {
         }
     }
 
-    public static void main(String[] args) {
-        String original = "La nave llegó sin aviso.\n"
-                + "No emitía señal alguna.\n"
-                + "Solo estaba ahí, suspendida.\n"
-                + "Negra. Angular. Silenciosa.\n"
-                + "No parecía moverse, pero se acercaba.\n"
-                + "Las alarmas no sonaron.";
 
-        String fragment = "La nave llegó sin aviso.No emitía señal alguna.Solo estaba ahí, suspendida.Negra. Angular.";
-
-        try {
-            int index = findOriginalIndex(original, fragment);
-            System.out.println("Corresponding index in original string: " + index);
-        } catch (IllegalArgumentException e) {
-            System.out.println("Error: " + e.getMessage());
-        }
-    }
 }

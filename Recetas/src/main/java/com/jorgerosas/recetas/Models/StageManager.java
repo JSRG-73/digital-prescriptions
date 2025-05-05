@@ -8,6 +8,7 @@ public class StageManager {
     public static void setPrimaryStage(Stage stage) {
         primaryStage = stage;
         primaryStage.setResizable(false);
+
     }
 
     public static Stage getPrimaryStage() {

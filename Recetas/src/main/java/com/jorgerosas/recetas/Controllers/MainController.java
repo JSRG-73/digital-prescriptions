@@ -25,7 +25,7 @@ public class MainController {
         Parent root = loader.load();
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(new Scene(root));
-
+        stage.centerOnScreen();
     }
 
     @FXML
@@ -60,6 +60,7 @@ public class MainController {
             Parent root = FXMLLoader.load(getClass().getResource("/com/jorgerosas/recetas/LoadRecipes.fxml"));
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stage.setScene(new Scene(root));
+            stage.centerOnScreen();
         } catch (Exception e) {
             e.printStackTrace();
         }

@@ -32,6 +32,7 @@ public class InfoDialog {
                 new Text("-En 'Cargar Receta' puede cargar los datos de recetas previas para reutilizar la descripción de la misma,"),
                 new Text("  puede buscar recetas previas por nombre o fecha en el apartado de 'buscar', para cargar o eliminar recetas,"),
                 new Text("-Al eliminar una receta NO borrará el PDF, solo no estará disponible para su reutilización."),
+                new Text("-No hay límite de texto para el campo Descripción, solo para el campo Nombre"),
 
                 new Text(""),
                 new Text("Desarrollado por: Ing. Jorge S. Rosas Gómez - Información de contacto: jorge.99rg@gmail.com")

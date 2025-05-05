@@ -46,6 +46,7 @@ public class SearchController implements Initializable {
         try {
             Parent root = FXMLLoader.load(getClass().getResource("/com/jorgerosas/recetas/Main-view.fxml"));
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.centerOnScreen();
             stage.setScene(new Scene(root));
         } catch (Exception e) {
             e.printStackTrace();

@@ -16,24 +16,25 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="600.0" maxWidth="800.0" minHeight="600.0" minWidth="800.0" prefHeight="600.0" prefWidth="800.0" stylesheets="@FxmlView.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jorgerosas.recetas.Controllers.SearchController">
+<BorderPane maxHeight="750.0" maxWidth="1000.0" minHeight="600.0" minWidth="800.0" prefHeight="750.0" prefWidth="1000.0" stylesheets="@FxmlView.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jorgerosas.recetas.Controllers.SearchController">
     <right>
         <VBox prefHeight="600.0" prefWidth="798.0" spacing="10" style="-fx-padding: 10;" BorderPane.alignment="CENTER">
-         <Text fill="#05367b" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="titlelabel" text="CARGAR RECETA" textAlignment="CENTER" wrappingWidth="568.7821655273438">
+         <Text fill="#05367b" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="titlelabel" text="CARGAR RECETA" textAlignment="CENTER" wrappingWidth="719.9822387695312">
             <font>
-               <Font name="Times New Roman" size="35.0" />
+               <Font name="Times New Roman" size="50.0" />
             </font></Text>
 
-            <HBox prefHeight="27.0" prefWidth="493.0" spacing="10" style="-fx-padding: 0 0 5 0;">
-            <Label fx:id="labelname" prefHeight="26.0" prefWidth="58.0" styleClass="standarlabel" text="Buscar:" textFill="#05367b">
+            <HBox prefHeight="34.0" prefWidth="729.0" spacing="10" style="-fx-padding: 0 0 5 0;">
+            <Label fx:id="labelname" prefHeight="26.0" prefWidth="94.0" styleClass="standarlabel" text="      Buscar:" textFill="#05367b">
                <font>
-                  <Font name="Times New Roman Bold" size="16.0" />
+                  <Font name="Times New Roman Bold" size="18.0" />
                </font>
             </Label>
-                <TextField fx:id="searchField" prefHeight="26.0" prefWidth="386.0" promptText="Buscar archivos...">
+                <TextField fx:id="searchField" prefHeight="30.0" prefWidth="484.0" promptText="Buscar archivos...">
                <font>
                   <Font size="14.0" />
-               </font></TextField>
+               </font>
+            </TextField>
             <Button mnemonicParsing="false" onAction="#removeJson" prefHeight="30.0" prefWidth="104.0" styleClass="delete_button" text="Borrar">
                 <graphic>
                     <ImageView fitHeight="20" fitWidth="20">
@@ -56,25 +57,33 @@
         </VBox>
     </right>
     <left>
-        <Pane prefHeight="600.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+        <Pane prefHeight="750.0" prefWidth="253.0" BorderPane.alignment="CENTER">
             <children>
-                <VBox layoutY="81.0" prefHeight="335.0" prefWidth="200.0" spacing="10.0">
+                <ImageView fitHeight="90.0" fitWidth="270.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@assets/App_logo_horizontal.png" />
+                    </image>
+                </ImageView>
+                <VBox layoutY="120.0" prefHeight="335.0" prefWidth="250.0" spacing="10.0">
                     <children>
-                        <Button fx:id="btnGoHome" mnemonicParsing="false" onAction="#goHome" prefHeight="50.0" prefWidth="200.0" styleClass="metal-button" text="Menú Principal">
+                        <Button fx:id="btnGoHome" mnemonicParsing="false" onAction="#goHome" prefHeight="55.0" prefWidth="250.0" styleClass="metal-button" text="Menú Principal">
                             <graphic>
                                 <ImageView fitHeight="20" fitWidth="20">
                                     <Image url="@assets/home.png" />
                                 </ImageView>
                             </graphic>
+                     <font>
+                        <Font size="14.0" />
+                     </font>
                         </Button>
-                        <Button fx:id="btnOpenSearcher" mnemonicParsing="false" onAction="#openNewRecipe" prefHeight="50.0" prefWidth="200.0" styleClass="metal-button" text="Nueva Receta">
+                        <Button fx:id="btnOpenSearcher" mnemonicParsing="false" onAction="#openNewRecipe" prefHeight="55.0" prefWidth="250.0" styleClass="metal-button" text="Nueva Receta">
                             <graphic>
                                 <ImageView fitHeight="20" fitWidth="20">
                                     <Image url="@assets/note_add.png" />
                                 </ImageView>
                             </graphic>
                         </Button>
-                        <Button fx:id="btnOpenPdfFolder" mnemonicParsing="false" onAction="#openPdfFolder" prefHeight="50.0" prefWidth="200.0" styleClass="metal-button" text="Ver PDFs">
+                        <Button fx:id="btnOpenPdfFolder" mnemonicParsing="false" onAction="#openPdfFolder" prefHeight="55.0" prefWidth="250.0" styleClass="metal-button" text="Ver PDFs">
                             <graphic>
                                 <ImageView fitHeight="20" fitWidth="20">
                                     <Image url="@assets/folder.png" />
@@ -86,19 +95,14 @@
                         <Insets bottom="100.0" />
                     </padding>
                 </VBox>
-                <ImageView fitHeight="69.0" fitWidth="216.0" layoutX="2.0" pickOnBounds="true" preserveRatio="true">
-                    <image>
-                        <Image url="@assets/App_logo_horizontal.png" />
-                    </image>
-                </ImageView>
-            <Button fx:id="btn_about" layoutY="550.0" mnemonicParsing="false" onAction="#about" prefHeight="50.0" prefWidth="100.0" styleClass="about_button" text="Info">
+            <Button fx:id="btn_about" layoutX="-1.0" layoutY="695.0" mnemonicParsing="false" onAction="#about" prefHeight="55.0" prefWidth="125.0" styleClass="about_button" text="Info">
                 <graphic>
                     <ImageView fitHeight="20" fitWidth="20">
                         <Image url="@assets/info.png" />
                     </ImageView>
                 </graphic>
             </Button>
-            <Button fx:id="btn_exit" layoutX="100.0" layoutY="550.0" mnemonicParsing="false" onAction="#closeApp" prefHeight="50.0" prefWidth="100.0" styleClass="close_button" text="Salir">
+            <Button fx:id="btn_exit" layoutX="124.0" layoutY="695.0" mnemonicParsing="false" onAction="#closeApp" prefHeight="55.0" prefWidth="125.0" styleClass="close_button" text="Salir">
                 <graphic>
                     <ImageView fitHeight="20" fitWidth="20">
                         <Image url="@assets/exit.png" />

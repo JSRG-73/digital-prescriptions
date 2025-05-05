@@ -12,24 +12,17 @@ public class JsonCreator {
     // Set your path here (no trailing slash needed)
     private static String BASE_DIRECTORY = "";
 
-    public static void main(String[] args) {
-        JsonCreator generator = new JsonCreator();
-        boolean success = generator.createJsonFile("test", "2023-08-21", "Simple example");
-        System.out.println("File creation " + (success ? "succeeded" : "failed"));
-    }
-
     public JsonCreator(){
         String baseDir = AppConfig.getInstance().getBaseDirectory();
         baseDir += File.separator +"savedrecipes";
         this.BASE_DIRECTORY=baseDir;
     }
 
-    public boolean createJsonFile(String name, String date, String description) {
+    public boolean createJsonFile(String name, String date, String description, String filename) {
         try {
 
-
             // Create filename
-            String fileName = FilterFileName.safeFilename(name + " " +date, "json");
+            String fileName = FilterFileName.safeFilename(filename, "json");
 
             // Create directory if needed
             Files.createDirectories(Paths.get(BASE_DIRECTORY));
@@ -50,7 +43,7 @@ public class JsonCreator {
         }
     }
 
-    private String sanitize(String input) {
+    public static String sanitize(String input) {
         return input.replaceAll("[^\\p{L}0-9-._ Filter]", "_")
                 .replaceAll("_+", "_");
     }

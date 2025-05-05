@@ -44,8 +44,8 @@ public class NRController implements Initializable {
     @FXML
     private DatePicker datePicker;
 
-    @FXML
-    private ToggleGroup sizeGroup;
+    /*@FXML
+    private ToggleGroup sizeGroup;*/
 
     @FXML
     private Pane mainPane;
@@ -72,6 +72,7 @@ public class NRController implements Initializable {
             Parent root = FXMLLoader.load(getClass().getResource("/com/jorgerosas/recetas/LoadRecipes.fxml"));
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stage.setScene(new Scene(root));
+
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -89,7 +90,9 @@ public class NRController implements Initializable {
         try {
             Parent root = FXMLLoader.load(getClass().getResource("/com/jorgerosas/recetas/Main-view.fxml"));
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.centerOnScreen();
             stage.setScene(new Scene(root));
+
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -147,7 +150,7 @@ public class NRController implements Initializable {
     @FXML
     private void generatePDF(ActionEvent event) throws IOException {
 
-        RadioButton pageSize = (RadioButton) sizeGroup.getSelectedToggle();
+        //RadioButton pageSize = (RadioButton) sizeGroup.getSelectedToggle();
 
         System.out.println("Generando PDF...");
         String patientName = txtPatientName.getText();
@@ -168,13 +171,14 @@ public class NRController implements Initializable {
             description = description.replaceAll("[/\\\\]", "-");
             String auxDescription=description;
             String finalfilename = patientName + " " + date + " " + time;
+            finalfilename=JsonCreator.sanitize(finalfilename);
             String htmlTemplatePath;
 
-            if(pageSize.getId().equals("fullSize")) {
+            //if(pageSize.getId().equals("fullSize")) {
                 htmlTemplatePath = "/templates/UC/UC.html";
-            }else{
+            /*}else{
                 htmlTemplatePath = "/templates/UC/UC-half.html";
-            }
+            }*/
 
             ArrayList<String> pdfList = new ArrayList<String>();
             ArrayList<String> htmlList = new ArrayList<String>();
@@ -185,7 +189,7 @@ public class NRController implements Initializable {
 
             //Generate Json
             JsonCreator js = new JsonCreator();
-            boolean b = js.createJsonFile(patientName, date, description);
+            boolean b = js.createJsonFile(patientName, date, description, finalfilename);
 
 
             int i=0;

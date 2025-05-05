@@ -12,19 +12,6 @@ public class JsonReader {
     private String name;
     private String description;
 
-    public static void main(String[] args) {
-        JsonReader reader = new JsonReader();
-
-        String baseDir = AppConfig.getInstance().getBaseDirectory();
-        baseDir += File.separator +"templates"+ File.separator +"UC" + File.separator;
-
-        boolean success = reader.readJsonFile(baseDir+"test_2023-08-21.json");
-
-        if(success) {
-            System.out.println("Name: " + reader.name);
-            System.out.println("Description: " + reader.description);
-        }
-    }
 
     public boolean readJsonFile(String filePath) {
         JSONParser parser = new JSONParser();

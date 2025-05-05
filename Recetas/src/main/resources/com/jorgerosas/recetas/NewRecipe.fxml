@@ -4,11 +4,9 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
@@ -16,25 +14,25 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<Pane fx:id="mainPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" stylesheets="@FxmlView.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jorgerosas.recetas.Controllers.NRController">
+<Pane fx:id="mainPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="1000.0" stylesheets="@FxmlView.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jorgerosas.recetas.Controllers.NRController">
    <children>
-      <VBox layoutY="82.0" prefHeight="303.0" prefWidth="200.0" spacing="10.0">
+      <VBox layoutY="120.0" prefHeight="303.0" prefWidth="250.0" spacing="10.0">
          <children>
-            <Button fx:id="btnGoHome" mnemonicParsing="false" onAction="#goHome" prefHeight="50.0" prefWidth="200.0" styleClass="metal-button" text="Menú Principal">
+            <Button fx:id="btnGoHome" mnemonicParsing="false" onAction="#goHome" prefHeight="55.0" prefWidth="250.0" styleClass="metal-button" text="Menú Principal">
                <graphic>
                   <ImageView fitHeight="20" fitWidth="20">
                      <Image url="@assets/home.png" />
                   </ImageView>
                </graphic>
             </Button>
-            <Button fx:id="btnOpenSearcher" mnemonicParsing="false" onAction="#openSearcher" prefHeight="50.0" prefWidth="200.0" styleClass="metal-button" text="Buscar Recetas">
+            <Button fx:id="btnOpenSearcher" mnemonicParsing="false" onAction="#openSearcher" prefHeight="55.0" prefWidth="250.0" styleClass="metal-button" text="Buscar Recetas">
                <graphic>
                   <ImageView fitHeight="20" fitWidth="20">
                      <Image url="@assets/search.png" />
                   </ImageView>
                </graphic>
             </Button>
-            <Button fx:id="btnOpenPdfFolder" mnemonicParsing="false" onAction="#openPdfFolder" prefHeight="50.0" prefWidth="200.0" styleClass="metal-button" text="Ver PDFs">
+            <Button fx:id="btnOpenPdfFolder" mnemonicParsing="false" onAction="#openPdfFolder" prefHeight="55.0" prefWidth="250.0" styleClass="metal-button" text="Ver PDFs">
                <graphic>
                   <ImageView fitHeight="20" fitWidth="20">
                      <Image url="@assets/folder.png" />
@@ -46,28 +44,28 @@
             <Insets bottom="100.0" />
          </padding>
       </VBox>
-      <TextField fx:id="txtPatientName" layoutX="236.0" layoutY="112.0" prefHeight="38.0" prefWidth="304.0" />
-      <TextArea fx:id="txtDescription" layoutX="236.0" layoutY="199.0" prefHeight="303.0" prefWidth="517.0" />
-      <Label fx:id="labelname" layoutX="236.0" layoutY="76.0" prefHeight="25.0" prefWidth="82.0" styleClass="standarlabel" text="Nombre" textFill="#05367b">
+      <TextField fx:id="txtPatientName" layoutX="288.0" layoutY="145.0" prefHeight="38.0" prefWidth="377.0" />
+      <TextArea fx:id="txtDescription" layoutX="288.0" layoutY="232.0" prefHeight="426.0" prefWidth="681.0" />
+      <Label fx:id="labelname" layoutX="288.0" layoutY="108.0" prefHeight="25.0" prefWidth="82.0" styleClass="standarlabel" text="Nombre" textFill="#05367b">
          <font>
-            <Font name="Times New Roman Bold" size="15.0" />
+            <Font name="Times New Roman Bold" size="18.0" />
          </font></Label>
-      <Label fx:id="labeldate" layoutX="607.0" layoutY="76.0" prefHeight="25.0" prefWidth="62.0" styleClass="standarlabel" text="Fecha" textFill="#05367b">
+      <Label fx:id="labeldate" layoutX="742.0" layoutY="108.0" prefHeight="25.0" prefWidth="62.0" styleClass="standarlabel" text="Fecha" textFill="#05367b">
          <font>
-            <Font name="System Bold" size="15.0" />
+            <Font name="System Bold" size="18.0" />
          </font></Label>
-      <Label fx:id="labeldescription" layoutX="236.0" layoutY="153.0" prefHeight="38.0" prefWidth="128.0" styleClass="standarlabel" text="Descripción" textFill="#05367b">
+      <Label fx:id="labeldescription" layoutX="288.0" layoutY="187.0" prefHeight="38.0" prefWidth="128.0" styleClass="standarlabel" text="Descripción" textFill="#05367b">
          <font>
-            <Font name="Times New Roman Bold" size="15.0" />
+            <Font name="Times New Roman Bold" size="18.0" />
          </font></Label>
-      <Button fx:id="btngenereatePDF" layoutX="590.0" layoutY="536.0" mnemonicParsing="false" onAction="#generatePDF" prefHeight="50.0" prefWidth="174.0" styleClass="metal-button" text="Generar PDF">
+      <Button fx:id="btngenereatePDF" layoutX="789.0" layoutY="687.0" mnemonicParsing="false" onAction="#generatePDF" prefHeight="55.0" prefWidth="180.0" styleClass="metal-button" text="Generar PDF">
          <graphic>
             <ImageView fitHeight="20" fitWidth="20">
                <Image url="@assets/pdf.png" />
             </ImageView>
          </graphic>
       </Button>
-      <Button fx:id="clearFields" layoutX="400.0" layoutY="536.0" mnemonicParsing="false" onAction="#clearFields" prefHeight="50.0" prefWidth="174.0" styleClass="metal-button" text="Limpiar campos">
+      <Button fx:id="clearFields" layoutX="288.0" layoutY="687.0" mnemonicParsing="false" onAction="#clearFields" prefHeight="55.0" prefWidth="180.0" styleClass="metal-button" text="Limpiar campos">
          <graphic>
             <ImageView fitHeight="20" fitWidth="20">
                <Image url="@assets/cleaning.png" />
@@ -75,25 +73,25 @@
          </graphic>
       </Button>
       <Label fx:id="statuslabel" layoutX="15.0" layoutY="419.0" prefHeight="25.0" prefWidth="62.0" styleClass="statuslabel" />
-      <DatePicker fx:id="datePicker" layoutX="607.0" layoutY="112.0" prefHeight="38.0" prefWidth="146.0" />
-      <ImageView fitHeight="68.0" fitWidth="229.0" pickOnBounds="true" preserveRatio="true">
+      <DatePicker fx:id="datePicker" layoutX="742.0" layoutY="145.0" prefHeight="38.0" prefWidth="226.0" />
+      <ImageView fitHeight="90.0" fitWidth="270.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@assets/App_logo_horizontal.png" />
          </image>
       </ImageView>
-      <Separator layoutX="200.0" orientation="VERTICAL" prefHeight="600.0" prefWidth="1.0" styleClass="vertical_separator" />
-      <Text fill="#05367b" layoutX="300.0" layoutY="45.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="titlelabel" text="CREAR NUEVA RECETA" wrappingWidth="405.800048828125">
+      <Separator layoutX="250.0" orientation="VERTICAL" prefHeight="750.0" prefWidth="0.0" styleClass="vertical_separator" />
+      <Text fill="#05367b" layoutX="344.0" layoutY="71.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="titlelabel" text="CREAR NUEVA RECETA" wrappingWidth="592.2000732421875">
          <font>
-            <Font size="35.0" />
+            <Font size="50.0" />
          </font></Text>
-      <Button fx:id="btn_about" layoutY="549.0" mnemonicParsing="false" onAction="#about" prefHeight="50.0" prefWidth="101.0" styleClass="about_button" text="Info">
+      <Button fx:id="btn_about" layoutY="695.0" mnemonicParsing="false" onAction="#about" prefHeight="55.0" prefWidth="125.0" styleClass="about_button" text="Info">
          <graphic>
             <ImageView fitHeight="20" fitWidth="20">
                <Image url="@assets/info.png" />
             </ImageView>
          </graphic>
       </Button>
-      <Button fx:id="btn_close" layoutX="99.0" layoutY="549.0" mnemonicParsing="false" onAction="#closeApp" prefHeight="50.0" prefWidth="101.0" styleClass="close_button" text="Salir">
+      <Button fx:id="btn_close" layoutX="125.0" layoutY="695.0" mnemonicParsing="false" onAction="#closeApp" prefHeight="55.0" prefWidth="125.0" styleClass="close_button" text="Salir">
          <graphic>
             <ImageView fitHeight="20" fitWidth="20">
                <Image url="@assets/exit.png" />
@@ -101,15 +99,6 @@
          </graphic>
       </Button>
 
-      <fx:define>
-         <ToggleGroup fx:id="sizeGroup" />
-      </fx:define>
-
-      <RadioButton fx:id="fullSize" layoutX="230.0" layoutY="540.0" mnemonicParsing="false" selected="true" text="Tamaño carta">
-         <toggleGroup>
-            <ToggleGroup fx:id="sizeGroup" />
-         </toggleGroup></RadioButton>
-      <RadioButton fx:id="halfSize" layoutX="230.0" layoutY="565.0" mnemonicParsing="false" text="Tamaño media carta" toggleGroup="$sizeGroup" />
 
    </children>
 </Pane>
