@@ -20,7 +20,7 @@ public class InfoDialog {
 
         content.getChildren().addAll(
                 text1,
-                new Text("Version: 1.1.0"),
+                new Text("Version: 1.2.6"),
                 new Text(""),
                 new Text("Guía rápida:"),
                 new Text("-En 'Nueva Receta' puede generar una receta introduciendo el nombre y la descripción que esta va a tener,"),
@@ -33,7 +33,9 @@ public class InfoDialog {
                 new Text("  puede buscar recetas previas por nombre o fecha en el apartado de 'buscar', para cargar o eliminar recetas,"),
                 new Text("-Al eliminar una receta NO borrará el PDF, solo no estará disponible para su reutilización."),
                 new Text("-No hay límite de texto para el campo Descripción, solo para el campo Nombre"),
-
+                new Text("-Para guardar el archivo PDF de forma segura, el programa remplaza por un guión bajo _ caracteres como los"),
+                new Text(" siguientes: “ ” ‘ ’ ( ) [ ] { } ‹ › + − × ÷ = ≠ ± < > $, €, ¥, ₹, ₿ , ; :"),
+                new Text(" estos caracteres aún se ven reflejados en el contenido del PDF, solo se remplazan en el nombre del archivo."),
                 new Text(""),
                 new Text("Desarrollado por: Ing. Jorge S. Rosas Gómez - Información de contacto: jorge.99rg@gmail.com")
         );

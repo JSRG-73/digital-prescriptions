@@ -198,7 +198,7 @@ public class NRController implements Initializable {
                 pdfList.add("Pagina-" + i + ".pdf");
                 htmlList.add("Pagina-" + i + ".html");
 
-                if(auxDescription.equals("")) break;
+                if(auxDescription.isEmpty() || auxDescription.isBlank()) break;
 
                 i++;
             } while (true);
