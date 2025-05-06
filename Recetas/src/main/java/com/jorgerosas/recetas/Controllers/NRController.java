@@ -158,7 +158,8 @@ public class NRController implements Initializable {
         time = time.replace(".","");
 
         if (patientName.isEmpty() || date.isEmpty() || description.isEmpty()) {
-            statuslabel1.setText("Por favor, completa todos los campos antes de generar el PDF.");
+            statuslabel1.setText("Por favor, completa todos los campos");
+            statuslabel2.setText("antes de generar el PDF.");
         } else {
 
 

@@ -52,8 +52,7 @@
 
                 <!-- Placeholder Text (Spanish) -->
                 <placeholder>
-                    <Label text="No hay recetas guardadas"
-                           style="-fx-text-fill: #666; -fx-font-size: 14px;"/>
+                    <Label style="-fx-text-fill: #666; -fx-font-size: 14px;" text="No hay recetas guardadas" />
                 </placeholder>
 
                 <!-- Resize Policy -->
@@ -67,7 +66,7 @@
     <left>
         <Pane prefHeight="750.0" prefWidth="253.0" BorderPane.alignment="CENTER">
             <children>
-                <ImageView fitHeight="90.0" fitWidth="270.0" pickOnBounds="true" preserveRatio="true">
+                <ImageView fitHeight="80.0" fitWidth="260.0" pickOnBounds="true" preserveRatio="true">
                     <image>
                         <Image url="@assets/App_logo_horizontal.png" />
                     </image>

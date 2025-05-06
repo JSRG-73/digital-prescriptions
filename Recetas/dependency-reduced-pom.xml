@@ -4,7 +4,7 @@
   <groupId>com.JorgeRosas</groupId>
   <artifactId>Recetas</artifactId>
   <name>Recetas</name>
-  <version>1.2.6</version>
+  <version>1.5.6</version>
   <build>
     <plugins>
       <plugin>
