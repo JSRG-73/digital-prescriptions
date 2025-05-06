@@ -1,45 +1,86 @@
 package com.jorgerosas.recetas;
 
 import javafx.application.Application;
+import javafx.collections.FXCollections;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
+import javafx.scene.Scene;
+import javafx.scene.control.*;
+import javafx.scene.layout.*;
+import javafx.stage.Stage;
+import javafx.scene.text.Font;
 
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
+public class Test extends Application {
 
-public class Test {
+    private final BorderPane parent = new BorderPane();
 
-    public static void createJsonFile(String key, String value, String folderPath, String fileName) {
-        // Create the JSON content as a simple string
-        String jsonContent = "{\n  \"" + key + "\": \"" + value + "\"\n}";
+    @Override
+    public void init() {
+        buildUI();
+    }
 
-        try {
-            // Ensure the folder exists
-            Path folder = Paths.get(folderPath);
+    private void buildUI() {
+        Label label = new Label("Hello, ControlsFX!");
+        Button fontButton = new Button("Select Font");
+        VBox container = new VBox(10, label, fontButton);
+        container.setAlignment(Pos.CENTER);
 
-            // Create the full path to the file
-            Path filePath = folder.resolve(fileName);
+        fontButton.setOnAction(e -> {
+            // Create custom dialog
+            Dialog<Font> dialog = new Dialog<>();
+            dialog.setTitle("Font Family Selection");
+            dialog.setHeaderText("Choose a Font Family");
 
-            // Write the JSON string to the file
-            try (FileWriter writer = new FileWriter(filePath.toFile())) {
-                writer.write(jsonContent);
-                System.out.println("JSON file created at: " + filePath);
-            }
-        } catch (IOException e) {
-            System.err.println("Error creating JSON file: " + e.getMessage());
-        }
+            // Set up ComboBox with font families
+            ComboBox<String> fontFamilyBox = new ComboBox<>();
+            fontFamilyBox.setItems(FXCollections.observableArrayList(Font.getFamilies()));
+            fontFamilyBox.setValue(label.getFont().getFamily());
+
+            // Create dialog layout
+            GridPane grid = new GridPane();
+            grid.setHgap(10);
+            grid.setVgap(10);
+            grid.setPadding(new Insets(20, 150, 10, 10));
+            grid.add(new Label("Font Family:"), 0, 0);
+            grid.add(fontFamilyBox, 1, 0);
+
+            // Add buttons
+            dialog.getDialogPane().getButtonTypes().addAll(ButtonType.OK, ButtonType.CANCEL);
+            dialog.getDialogPane().setContent(grid);
+
+            // Convert result to Font
+            dialog.setResultConverter(buttonType -> {
+                if (buttonType == ButtonType.OK) {
+                    Font currentFont = label.getFont();
+                    return Font.font(
+                            fontFamilyBox.getValue(),
+                            currentFont.getSize()
+                    );
+                }
+                return null;
+            });
+
+            // Apply selected font
+            dialog.showAndWait().ifPresent(label::setFont);
+        });
+
+        parent.setCenter(container);
+    }
+
+    @Override
+    public void start(Stage stage) {
+        setupStage(stage);
+    }
+
+    private void setupStage(Stage stage) {
+        Scene scene = new Scene(parent, 640, 480);
+        stage.setTitle("Font Family Selection");
+        stage.setScene(scene);
+        stage.centerOnScreen();
+        stage.show();
     }
 
     public static void main(String[] args) {
-
-        String baseDir = AppConfig.getInstance().getBaseDirectory();
-        baseDir += File.separator +"templates"+ File.separator +"UC"+ File.separator;
-
-        //File myObj = new File(baseDir+"Carlos Alberto Castro Jiménez 12-abril-2025.html");
-        //myObj.delete();
-
-
+        launch(args);
     }
 }

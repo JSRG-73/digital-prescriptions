@@ -9,16 +9,12 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.*;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.Pane;
-import javafx.scene.web.HTMLEditor;
 import javafx.stage.Stage;
-import javafx.scene.text.Text;
 import java.time.LocalTime;
-
 import java.awt.*;
 import java.io.File;
 import java.io.IOException;
@@ -33,7 +29,10 @@ import java.util.ResourceBundle;
 public class NRController implements Initializable {
 
     @FXML
-    private Label statuslabel;
+    private Label statuslabel1;
+
+    @FXML
+    private Label statuslabel2;
 
     @FXML
     private TextField txtPatientName;
@@ -47,12 +46,8 @@ public class NRController implements Initializable {
     /*@FXML
     private ToggleGroup sizeGroup;*/
 
-    @FXML
-    private Pane mainPane;
-
     private final String Name;
     private final String Description;
-    private double wWidth;
 
     public NRController(String name, String description) {
         this.Name = name;
@@ -148,11 +143,12 @@ public class NRController implements Initializable {
 
 
     @FXML
-    private void generatePDF(ActionEvent event) throws IOException {
+    private void generatePDF(ActionEvent event) throws IOException, InterruptedException {
 
         //RadioButton pageSize = (RadioButton) sizeGroup.getSelectedToggle();
-
-        System.out.println("Generando PDF...");
+        statuslabel1.setVisible(true);
+        statuslabel2.setVisible(true);
+        statuslabel2.setStyle("");
         String patientName = txtPatientName.getText();
         String date = formatDate();
         String description = txtDescription.getText();
@@ -162,8 +158,10 @@ public class NRController implements Initializable {
         time = time.replace(".","");
 
         if (patientName.isEmpty() || date.isEmpty() || description.isEmpty()) {
-            System.out.println("Por favor, completa todos los campos antes de generar el PDF.");
+            statuslabel1.setText("Por favor, completa todos los campos antes de generar el PDF.");
         } else {
+
+
 
             //**************Declarations*************************************************************
             patientName = patientName.replaceAll("[/\\\\]", "-");
@@ -197,8 +195,9 @@ public class NRController implements Initializable {
                 auxDescription = singlePdf(i, htmlTemplatePath, patientName, date, auxDescription);
                 pdfList.add("Pagina-" + i + ".pdf");
                 htmlList.add("Pagina-" + i + ".html");
+                statuslabel1.setText("Creando PDF, por favor espere...");
 
-                if(auxDescription.isEmpty() || auxDescription.isBlank()) break;
+                if(auxDescription.isBlank()) break;
 
                 i++;
             } while (true);
@@ -211,7 +210,9 @@ public class NRController implements Initializable {
             txtPatientName.clear();
             txtDescription.clear();
 
-            System.out.println("PDF generado para: " + patientName);
+            statuslabel1.setText("PDF generado para: ");
+            statuslabel2.setStyle("-fx-font-weight: bold;");
+            statuslabel2.setText(patientName);
 
             File file = new File(pdfpath+File.separator+"MergedPdf.pdf");
             File rename = new File(pdfpath+File.separator+ finalfilename +".pdf");
@@ -222,6 +223,7 @@ public class NRController implements Initializable {
             else {
                 System.out.println("Operation Failed");
             }
+
         }
     }
 
@@ -271,4 +273,5 @@ public class NRController implements Initializable {
         String formattedDate = selectedDate.format(formatter);
         return formattedDate;
     }
+
 }

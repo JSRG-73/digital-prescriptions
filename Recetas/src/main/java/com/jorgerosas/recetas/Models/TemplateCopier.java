@@ -48,7 +48,7 @@ public class TemplateCopier {
             // Production mode: resources are inside the running JAR
             JarURLConnection jarConn = (JarURLConnection) url.openConnection();
             try (JarFile jar = jarConn.getJarFile()) {
-                String entryPrefix = jarConn.getEntryName() + "/";  // e.g. "HtmlCompliments/"
+                String entryPrefix = jarConn.getEntryName() + "/";
                 Enumeration<JarEntry> entries = jar.entries();
                 while (entries.hasMoreElements()) {
                     JarEntry entry = entries.nextElement();

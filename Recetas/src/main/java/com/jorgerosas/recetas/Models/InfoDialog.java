@@ -20,7 +20,7 @@ public class InfoDialog {
 
         content.getChildren().addAll(
                 text1,
-                new Text("Version: 1.2.6"),
+                new Text("Version: 1.5.6"),
                 new Text(""),
                 new Text("Guía rápida:"),
                 new Text("-En 'Nueva Receta' puede generar una receta introduciendo el nombre y la descripción que esta va a tener,"),

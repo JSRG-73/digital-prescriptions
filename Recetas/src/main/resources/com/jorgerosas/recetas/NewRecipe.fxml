@@ -16,7 +16,7 @@
 
 <Pane fx:id="mainPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="1000.0" stylesheets="@FxmlView.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jorgerosas.recetas.Controllers.NRController">
    <children>
-      <VBox layoutY="120.0" prefHeight="303.0" prefWidth="250.0" spacing="10.0">
+      <VBox layoutY="121.0" prefHeight="303.0" prefWidth="250.0" spacing="10.0">
          <children>
             <Button fx:id="btnGoHome" mnemonicParsing="false" onAction="#goHome" prefHeight="55.0" prefWidth="250.0" styleClass="metal-button" text="Menú Principal">
                <graphic>
@@ -72,7 +72,7 @@
             </ImageView>
          </graphic>
       </Button>
-      <Label fx:id="statuslabel" layoutX="15.0" layoutY="419.0" prefHeight="25.0" prefWidth="62.0" styleClass="statuslabel" />
+      <Label fx:id="statuslabel1" layoutX="497.0" layoutY="676.0" prefHeight="38.0" prefWidth="259.0" styleClass="statuslabel" text="Bienvenido, ingrese los datos y" textAlignment="CENTER" />
       <DatePicker fx:id="datePicker" layoutX="742.0" layoutY="145.0" prefHeight="38.0" prefWidth="226.0" />
       <ImageView fitHeight="90.0" fitWidth="270.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -98,6 +98,7 @@
             </ImageView>
          </graphic>
       </Button>
+      <Label fx:id="statuslabel2" layoutX="497.0" layoutY="704.0" prefHeight="38.0" prefWidth="259.0" styleClass="statuslabel" text="presione el boton para generar el PDF" textAlignment="CENTER" />
 
 
    </children>

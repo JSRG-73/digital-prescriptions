@@ -160,8 +160,6 @@ public class SearchController implements Initializable {
                 return new SimpleStringProperty(displayName);
             });
 
-            System.out.println("Capa dorada");
-
         } catch (IOException e) {
             System.err.println("Error loading files: " + e.getMessage());
         }

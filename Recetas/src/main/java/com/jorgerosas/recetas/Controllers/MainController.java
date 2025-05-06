@@ -31,7 +31,7 @@ public class MainController {
     @FXML
     private void openPdfFolder(ActionEvent event) throws IOException {
         String baseDir = AppConfig.getInstance().getBaseDirectory();
-        baseDir += File.separator +"Recetas";
+        baseDir += File.separator + "Recetas";
 
         File dir = new File(baseDir);
         if (!dir.exists() && !dir.mkdirs()) {

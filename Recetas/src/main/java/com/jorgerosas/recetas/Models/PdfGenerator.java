@@ -84,7 +84,6 @@ public class PdfGenerator {
 
         String baseDir = AppConfig.getInstance().getBaseDirectory();
         Path currentDir = Paths.get(baseDir, "Html", filename);
-        //String currentDir = System.getProperty("user.dir");
         String fileUrl = "file:///" + currentDir.toString().replace("\\", "/");
 
         return fileUrl;

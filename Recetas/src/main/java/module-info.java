@@ -13,6 +13,7 @@ module com.jorgerosas.recetas {
     requires json.simple;
     requires org.apache.pdfbox;
     requires org.apache.pdfbox.io;
+    requires org.controlsfx.controls;
 
     exports com.jorgerosas.recetas to javafx.graphics, javafx.fxml;
     exports com.jorgerosas.recetas.Models;
@@ -20,8 +21,6 @@ module com.jorgerosas.recetas {
 
     opens com.jorgerosas.recetas to javafx.fxml;
     opens com.jorgerosas.recetas.Controllers to javafx.fxml;
-    exports com.jorgerosas.recetas.Views to javafx.fxml, javafx.graphics;
-    opens com.jorgerosas.recetas.Views to javafx.fxml;
 
     //opens com.example to javafx.graphics, javafx.fxml;
     opens com.jorgerosas.recetas.Models to brotli4j, javafx.fxml;

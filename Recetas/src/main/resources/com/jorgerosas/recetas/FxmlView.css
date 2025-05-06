@@ -24,6 +24,12 @@
     font-weight: bold;
 }
 
+.statuslabel{
+    -fx-alignment: center;
+    -fx-content-display: center;
+    -fx-font-size: 14px;
+}
+
 /*-------------------------------------------------------------------------------------*/
 
 .metal-button {
