@@ -35,7 +35,7 @@
                   <Font size="14.0" />
                </font>
             </TextField>
-            <Button mnemonicParsing="false" onAction="#removeJson" prefHeight="30.0" prefWidth="104.0" styleClass="delete_button" text="Borrar">
+            <Button mnemonicParsing="false" onAction="#removeJson" prefHeight="30.0" prefWidth="104.0" styleClass="close-button" text="Borrar">
                 <graphic>
                     <ImageView fitHeight="20" fitWidth="20">
                         <Image url="@assets/delete.png" />
@@ -102,14 +102,14 @@
                         <Insets bottom="100.0" />
                     </padding>
                 </VBox>
-            <Button fx:id="btn_about" layoutX="-1.0" layoutY="695.0" mnemonicParsing="false" onAction="#about" prefHeight="55.0" prefWidth="125.0" styleClass="about_button" text="Info">
+            <Button fx:id="btn_about" layoutX="-1.0" layoutY="695.0" mnemonicParsing="false" onAction="#about" prefHeight="55.0" prefWidth="125.0" styleClass="about-button" text="Info">
                 <graphic>
                     <ImageView fitHeight="20" fitWidth="20">
                         <Image url="@assets/info.png" />
                     </ImageView>
                 </graphic>
             </Button>
-            <Button fx:id="btn_exit" layoutX="124.0" layoutY="695.0" mnemonicParsing="false" onAction="#closeApp" prefHeight="55.0" prefWidth="125.0" styleClass="close_button" text="Salir">
+            <Button fx:id="btn_exit" layoutX="124.0" layoutY="695.0" mnemonicParsing="false" onAction="#closeApp" prefHeight="55.0" prefWidth="125.0" styleClass="close-button" text="Salir">
                 <graphic>
                     <ImageView fitHeight="20" fitWidth="20">
                         <Image url="@assets/exit.png" />

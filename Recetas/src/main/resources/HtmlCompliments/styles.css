@@ -1,3 +1,33 @@
+@page {
+    size: letter;
+    margin: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 98vh;
+    text-align: center;
+    margin-top: 20;
+    margin-bottom: 10;
+    margin-left: 10;
+    margin-right: 10;
+}
+
+.content {
+    flex: 1;
+    padding-left: 60px;
+    padding-right: 60px;
+    color: black;
+    text-align: left;
+    font-size: 16px;
+    white-space: pre-line;
+    max-width: 2320px;
+    overflow-wrap: break-word;
+    max-height: calc(35 * 1lh);
+    overflow: hidden;
+}
+
 header {
     display: flex;
     width: 100%;

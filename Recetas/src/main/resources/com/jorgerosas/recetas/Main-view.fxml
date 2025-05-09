@@ -83,7 +83,7 @@
                     </HBox>
                 </children>
             </VBox>
-         <Button fx:id="aboutButton" layoutY="1.0" mnemonicParsing="false" onAction="#about" prefHeight="41.0" prefWidth="127.0" styleClass="about_button" text="Información" />
+         <Button fx:id="aboutButton" layoutY="1.0" mnemonicParsing="false" onAction="#about" prefHeight="41.0" prefWidth="127.0" styleClass="about-button" text="Información" />
 
         </AnchorPane>
     </children>
